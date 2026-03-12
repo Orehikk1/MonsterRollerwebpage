@@ -188,6 +188,134 @@ import Layout from '../layouts/Layout.astro';
     </div>
   </section>
 
+  <!-- Session Selector -->
+  <section class="session-selector-section">
+    <div class="session-shell">
+      <h2 class="session-title">Pick the Perfect Ride Session</h2>
+      <p class="session-subtitle">Flexible options for solo riders, couples, and adrenaline-loving groups.</p>
+
+      <div class="session-slider-controls" aria-label="Session slider controls">
+        <button class="session-arrow" id="sessionPrev" type="button" aria-label="Previous session">&#8592;</button>
+        <button class="session-arrow" id="sessionNext" type="button" aria-label="Next session">&#8594;</button>
+      </div>
+
+      <div class="session-slider" id="sessionSlider" aria-label="Session options">
+        <article class="session-card theme-teal" data-index="0" tabindex="0">
+          <div class="session-card-overlay"></div>
+          <div class="session-card-content">
+            <div class="session-card-head">
+              <h3 class="session-name">City Sprint</h3>
+              <span class="session-price">€25</span>
+            </div>
+            <p class="session-duration">60 minutes</p>
+            <p class="session-description">A high-energy quick lap through iconic streets with enough time to feel the Beast.</p>
+            <div class="session-tags">
+              <span>Solo Friendly</span>
+              <span>Quick Ride</span>
+            </div>
+            <button type="button" class="session-reserve-btn">Reserve</button>
+          </div>
+        </article>
+
+        <article class="session-card theme-blue" data-index="1" tabindex="0">
+          <div class="session-card-overlay"></div>
+          <div class="session-card-content">
+            <div class="session-card-head">
+              <h3 class="session-name">Blue Horizon</h3>
+              <span class="session-price">€45</span>
+            </div>
+            <p class="session-duration">120 minutes</p>
+            <p class="session-description">Longer route with scenic viewpoints and enough flexibility for photo stops.</p>
+            <div class="session-tags">
+              <span>Scenic Route</span>
+              <span>Couples</span>
+            </div>
+            <button type="button" class="session-reserve-btn">Reserve</button>
+          </div>
+        </article>
+
+        <article class="session-card theme-violet" data-index="2" tabindex="0">
+          <div class="session-card-overlay"></div>
+          <span class="session-popular-badge">Most Popular</span>
+          <div class="session-card-content">
+            <div class="session-card-head">
+              <h3 class="session-name">Night Pulse</h3>
+              <span class="session-price">€60</span>
+            </div>
+            <p class="session-duration">180 minutes</p>
+            <p class="session-description">Best-value extended session with city lights, speed lines, and a full Budapest vibe.</p>
+            <div class="session-tags">
+              <span>Best Value</span>
+              <span>Group Pick</span>
+            </div>
+            <button type="button" class="session-reserve-btn">Reserve</button>
+          </div>
+        </article>
+
+        <article class="session-card theme-gold" data-index="3" tabindex="0">
+          <div class="session-card-overlay"></div>
+          <div class="session-card-content">
+            <div class="session-card-head">
+              <h3 class="session-name">Golden Drift</h3>
+              <span class="session-price">€80</span>
+            </div>
+            <p class="session-duration">240 minutes</p>
+            <p class="session-description">Half-day adventure built for explorers who want distance, pace, and freedom.</p>
+            <div class="session-tags">
+              <span>Half Day</span>
+              <span>Explorer</span>
+            </div>
+            <button type="button" class="session-reserve-btn">Reserve</button>
+          </div>
+        </article>
+
+        <article class="session-card theme-coral" data-index="4" tabindex="0">
+          <div class="session-card-overlay"></div>
+          <div class="session-card-content">
+            <div class="session-card-head">
+              <h3 class="session-name">Sunset Blaze</h3>
+              <span class="session-price">€95</span>
+            </div>
+            <p class="session-duration">300 minutes</p>
+            <p class="session-description">Premium sunset-to-night route for riders who want maximum thrill and city energy.</p>
+            <div class="session-tags">
+              <span>Premium</span>
+              <span>Sunset</span>
+            </div>
+            <button type="button" class="session-reserve-btn">Reserve</button>
+          </div>
+        </article>
+      </div>
+
+      <div class="session-dot-nav" id="sessionDotNav" aria-label="Session navigation">
+        <button class="session-dot" type="button" aria-label="Go to session 1" data-index="0"></button>
+        <button class="session-dot" type="button" aria-label="Go to session 2" data-index="1"></button>
+        <button class="session-dot" type="button" aria-label="Go to session 3" data-index="2"></button>
+        <button class="session-dot" type="button" aria-label="Go to session 4" data-index="3"></button>
+        <button class="session-dot" type="button" aria-label="Go to session 5" data-index="4"></button>
+      </div>
+
+      <div class="session-stats" id="sessionStats">
+        <div class="session-stat-item">
+          <p class="session-stat-value"><span data-count="1000">0</span><em>+</em></p>
+          <p class="session-stat-label">happy customers</p>
+        </div>
+        <div class="session-stat-item">
+          <p class="session-stat-value"><span data-count="8">0</span><em>+</em></p>
+          <p class="session-stat-label">years experience</p>
+        </div>
+        <div class="session-stat-item">
+          <p class="session-stat-value"><span data-count="98">0</span><em>%</em></p>
+          <p class="session-stat-label">satisfaction rate</p>
+        </div>
+        <div class="session-stat-item">
+          <p class="session-stat-value"><span data-count="40">0</span><em>+</em></p>
+          <p class="session-stat-label">languages supported</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- JavaScript -->
   <script>
     const singleBtn = document.getElementById('singleBtn');
@@ -252,5 +380,119 @@ import Layout from '../layouts/Layout.astro';
     });
 
     updatePrice();
+
+    const sessionSlider = document.getElementById('sessionSlider');
+    const sessionCards = sessionSlider ? Array.from(sessionSlider.querySelectorAll('.session-card')) : [];
+    const sessionDots = Array.from(document.querySelectorAll('.session-dot'));
+    const prevBtn = document.getElementById('sessionPrev');
+    const nextBtn = document.getElementById('sessionNext');
+    const defaultSessionIndex = 2;
+    let activeSessionIndex = defaultSessionIndex;
+
+    function setActiveSession(index) {
+      activeSessionIndex = index;
+      sessionCards.forEach((card, cardIndex) => {
+        card.classList.toggle('is-active', cardIndex === index);
+      });
+      sessionDots.forEach((dot, dotIndex) => {
+        dot.classList.toggle('is-active', dotIndex === index);
+      });
+    }
+
+    function centerCard(index, smooth = true) {
+      const card = sessionCards[index];
+      if (!card || !sessionSlider) return;
+      const left = card.offsetLeft - (sessionSlider.clientWidth - card.clientWidth) / 2;
+      sessionSlider.scrollTo({ left, behavior: smooth ? 'smooth' : 'auto' });
+    }
+
+    function bindSessionEvents() {
+      if (!sessionSlider || sessionCards.length === 0) return;
+
+      sessionCards.forEach((card, index) => {
+        card.addEventListener('click', () => {
+          setActiveSession(index);
+          centerCard(index, true);
+        });
+        card.addEventListener('keydown', (event) => {
+          if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault();
+            setActiveSession(index);
+            centerCard(index, true);
+          }
+        });
+      });
+
+      sessionDots.forEach((dot) => {
+        dot.addEventListener('click', () => {
+          const index = Number(dot.dataset.index);
+          if (Number.isNaN(index)) return;
+          setActiveSession(index);
+          centerCard(index, true);
+        });
+      });
+
+      sessionSlider.addEventListener('scroll', () => {
+        let closestIndex = activeSessionIndex;
+        let closestDistance = Infinity;
+        sessionCards.forEach((card, index) => {
+          const cardCenter = card.offsetLeft + card.clientWidth / 2;
+          const sliderCenter = sessionSlider.scrollLeft + sessionSlider.clientWidth / 2;
+          const distance = Math.abs(cardCenter - sliderCenter);
+          if (distance < closestDistance) {
+            closestDistance = distance;
+            closestIndex = index;
+          }
+        });
+        if (closestIndex !== activeSessionIndex) {
+          setActiveSession(closestIndex);
+        }
+      }, { passive: true });
+
+      if (prevBtn) {
+        prevBtn.addEventListener('click', () => {
+          const nextIndex = Math.max(activeSessionIndex - 1, 0);
+          setActiveSession(nextIndex);
+          centerCard(nextIndex, true);
+        });
+      }
+
+      if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+          const nextIndex = Math.min(activeSessionIndex + 1, sessionCards.length - 1);
+          setActiveSession(nextIndex);
+          centerCard(nextIndex, true);
+        });
+      }
+
+      setActiveSession(defaultSessionIndex);
+      requestAnimationFrame(() => centerCard(defaultSessionIndex, false));
+    }
+
+    function animateStatValue(el, target, duration = 1500) {
+      const start = performance.now();
+      function frame(now) {
+        const progress = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        el.textContent = String(Math.round(target * eased));
+        if (progress < 1) {
+          requestAnimationFrame(frame);
+        }
+      }
+      requestAnimationFrame(frame);
+    }
+
+    function initStatsAnimation() {
+      const statsRoot = document.getElementById('sessionStats');
+      if (!statsRoot) return;
+      const values = Array.from(statsRoot.querySelectorAll('[data-count]'));
+      values.forEach((value) => {
+        const target = Number(value.getAttribute('data-count'));
+        animateStatValue(value, target, 6000);
+      });
+    }
+
+    bindSessionEvents();
+    initStatsAnimation();
   </script>
 </Layout>
