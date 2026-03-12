@@ -1,5 +1,4 @@
 ---
-import { Analytics } from '@vercel/analytics/astro';
 import '../styles/global.css';
 const { title = "Monster Roller Budapest" } = Astro.props;
 ---
@@ -141,6 +140,6 @@ const { title = "Monster Roller Budapest" } = Astro.props;
       });
     });
   </script>
-  <Analytics />
+  <script defer src="/_vercel/insights/script.js"></script>
 </body>
 </html>
