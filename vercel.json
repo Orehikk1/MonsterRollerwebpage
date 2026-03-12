@@ -1,0 +1,5 @@
+{
+  "buildCommand": "cd bustling-bar && npm run build",
+  "installCommand": "cd bustling-bar && npm install",
+  "outputDirectory": "bustling-bar/dist"
+}
