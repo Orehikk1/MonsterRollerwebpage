@@ -1,0 +1,350 @@
+@import "tailwindcss";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg-primary: #fffaf0;
+    --bg-secondary: #fdf4e9;
+    --text-primary: #1f2937;
+    --text-secondary: #4b5563;
+    --border: #e5e7eb;
+    --accent: #f97316;
+  }
+
+  .dark {
+    --bg-primary: #0f1419;
+    --bg-secondary: #1e2556;
+    --text-primary: #f1f5f9;
+    --text-secondary: #cbd5e1;
+    --border: #3d4a7a;
+    --accent: #ff8c42;
+  }
+
+  body {
+    color: var(--text-primary);
+    transition: background-color 0.3s ease;
+  }
+
+  /* Light mode background */
+  html.light body {
+    background: linear-gradient(to bottom, #fffaf0, #fdf4e9) !important;
+  }
+
+  /* Dark mode background */
+  html.dark body {
+    background: linear-gradient(to bottom, #0f1419, #1a1f3a) !important;
+  }
+
+  /* Dark mode header */
+  html.dark header {
+    background-color: #0f1419 !important;
+    border-color: #3d4a7a !important;
+  }
+}
+
+/* Light mode - style cards and forms only */
+html.light div[class*="dark:bg-zinc-800"] {
+  background-color: #fffaf0 !important;
+}
+
+/* Wave bar styles - light mode only */
+html.light div[class*="bg-gradient-to-b"][class*="from-orange-100"] {
+  background: linear-gradient(to bottom, #fed7aa, #fef3c7) !important;
+}
+
+html.light div[class*="bg-gradient-to-b"][class*="from-orange-100"] div[class*="bg-gradient-to-r"] {
+  background: linear-gradient(to right, transparent, rgb(234, 88, 12), transparent) !important;
+}
+
+/* Fix text colors in light mode - make gray text darker */
+html.light p[class*="text-gray-700"],
+html.light span[class*="text-gray-700"],
+html.light label[class*="text-gray-700"],
+html.light li[class*="text-gray-700"] {
+  color: #374151 !important;
+}
+
+html.light p[class*="text-gray-600"],
+html.light span[class*="text-gray-600"],
+html.light li[class*="text-gray-600"] {
+  color: #4b5563 !important;
+}
+
+html.light p[class*="text-gray-500"],
+html.light span[class*="text-gray-500"] {
+  color: #6b7280 !important;
+}
+
+/* List items in light mode */
+html.light ul[class*="text-gray-"],
+html.light li[class*="text-gray-800"],
+html.light li[class*="text-gray-700"] {
+  color: #1f2937 !important;
+}
+
+html.light ul {
+  color: #1f2937 !important;
+}
+
+/* Fix red/warning text in light mode */
+html.light span[class*="text-red-500"] {
+  color: #dc2626 !important;
+}
+
+/* Ensure important paragraphs are visible */
+html.light p:not([class*="text-orange"]):not([class*="text-red"]) {
+  color: #1f2937 !important;
+}
+
+/* Force hero paragraph to be white in light mode */
+html.light div[class*="absolute"][class*="inset-0"] p {
+  color: white !important;
+}
+
+html.light input[type="text"],
+html.light input[type="date"],
+html.light input[type="time"],
+html.light input[type="number"],
+html.light select,
+html.light textarea {
+  background-color: white !important;
+  color: #1f2937 !important;
+  border-color: #d1d5db !important;
+  border-width: 1px !important;
+}
+
+html.light select {
+  background-color: white !important;
+  color: #1f2937 !important;
+}
+
+html.light textarea {
+  background-color: white !important;
+  color: #1f2937 !important;
+}
+
+html.light input:focus,
+html.light select:focus,
+html.light textarea:focus {
+  background-color: white !important;
+  border-color: #ff8c00 !important;
+  box-shadow: 0 0 0 3px rgba(255, 140, 0, 0.1) !important;
+}
+
+html.light input::placeholder,
+html.light textarea::placeholder {
+  color: #9ca3af;
+}
+
+html.light button[type="button"] {
+  color: #1f2937 !important;
+}
+
+html.light button[class*="active"] {
+  color: #000 !important;
+}
+
+html.light div[class*="lg:col-span"],
+html.light div[class*="backdrop-blur-sm"][class*="bg-white"] {
+  background-color: white !important;
+}
+
+html.light div[class*="rounded-3xl"][class*="border"][class*="shadow-xl"] {
+  background-color: white !important;
+}
+
+html.light div[class*="shadow-inner"][class*="rounded-2xl"] {
+  background-color: white !important;
+  opacity: 1 !important;
+}
+
+html.light div[class*="text-center"][class*="shadow-inner"] {
+  background-color: white !important;
+  opacity: 1 !important;
+}
+
+/* Animations */
+@keyframes pulse-slow {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 3.5s ease-in-out infinite;
+}
+
+@keyframes wave {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.animate-wave-fast {
+  animation: wave 4s ease-in-out infinite;
+}
+
+.animate-wave {
+  animation: wave 5s ease-in-out infinite;
+}
+
+.delay-500 {
+  animation-delay: 2.5s;
+}
+
+@keyframes ping-slow {
+  0% { transform: scale(1); opacity: 0.7; }
+  75% { transform: scale(1.1); opacity: 0; }
+  100% { transform: scale(1.1); opacity: 0; }
+}
+
+.animate-ping-slow {
+  animation: ping-slow 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+/* New animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes scaleInSlow {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(249, 115, 22, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(249, 115, 22, 0.6);
+  }
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.animate-slideInLeft {
+  animation: slideInLeft 0.8s ease-out forwards;
+}
+
+.animate-slideInRight {
+  animation: slideInRight 0.8s ease-out forwards;
+}
+
+.animate-scaleIn {
+  animation: scaleIn 0.6s ease-out forwards;
+}
+
+.animate-scaleInSlow {
+  animation: scaleInSlow 1.5s ease-out forwards;
+}
+
+.animate-float {
+  animation: float 4.8s ease-in-out infinite;
+}
+
+.animate-glow {
+  animation: glow 2s ease-in-out infinite;
+}
+
+/* Stagger delays */
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-400 { animation-delay: 0.4s; }
+
+.animation-delay-500 {
+  animation-delay: 0.5s;
+}
+
+/* Header styling */
+html.light header {
+  background-color: #fffaf0;
+}
+
+html.light header a {
+  color: #ff8c00 !important;
+}
+
+html.light header a[class*="text-orange"] {
+  color: #ff8c00 !important;
+}
+
+html.light nav a,
+html.light nav button,
+html.light header button {
+  color: #000 !important;
+}
+
+html.dark header {
+  background-color: #000000;
+}
+
+/* Light mode - background for content sections */
+html.light section[class*="py-"] {
+  background: #fffaf0 !important;
+}
+
+html.light section[class*="from-white"],
+html.light section[class*="from-[#"] {
+  background: #fffaf0 !important;
+}
+

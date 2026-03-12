@@ -1,0 +1,256 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Monster Roller Budapest – Ride the Beast!">
+  <!-- Hero -->
+  <section class="relative h-[85vh] sm:h-[70vh] md:h-screen w-full overflow-hidden dark:bg-zinc-900">
+    <img src="/images/hero-night.jpg" alt="Monster Roller" class="absolute inset-0 w-full h-full object-cover brightness-75 dark:brightness-50" />
+    <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/30 dark:from-black/20 dark:via-transparent dark:to-[#fdf4e9]/30 flex flex-col items-center justify-center px-4 sm:px-6 text-center">
+      <h1 class="text-4xl sm:text-6xl md:text-7xl lg:text-9xl font-black text-black dark:text-orange-600 mb-4 md:mb-8 tracking-tight drop-shadow-2xl animate-fadeInUp">
+        RIDE THE MONSTER
+      </h1>
+      <p class="text-base sm:text-2xl md:text-3xl lg:text-4xl mb-6 md:mb-10 max-w-3xl lg:max-w-4xl font-light text-white drop-shadow-lg animate-fadeInUp delay-100">
+        The most powerful and fun way to conquer Budapest – on an electric Monster Roller!
+      </p>
+      <a href="https://wa.me/36302584709?text=I%20want%20to%20book%20a%20Monster%20Roller%20now!" class="bg-orange-500 hover:bg-orange-400 text-black font-bold text-lg sm:text-xl md:text-2xl lg:text-3xl px-8 sm:px-12 md:px-16 py-4 md:py-6 lg:py-8 rounded-full shadow-2xl transform hover:scale-105 transition-all duration-300 animate-fadeInUp delay-200 animate-glow">
+        Book via WhatsApp →
+      </a>
+    </div>
+  </section>
+
+  <!-- Wave transition -->
+  <div class="relative h-3 sm:h-4 md:h-5 overflow-hidden" style="background: linear-gradient(to bottom, #fed7aa, #fef3c7);">
+    <div class="absolute inset-0 bg-gradient-to-r from-transparent via-orange-700/80 to-transparent animate-wave-fast"></div>
+    <div class="absolute inset-0 bg-gradient-to-r from-transparent via-orange-600/70 to-transparent animate-wave delay-500"></div>
+  </div>
+
+  <!-- Rent Prices -->
+  <section class="py-12 sm:py-16 md:py-24 lg:py-32 bg-gradient-to-b from-[#fffaf0] to-[#fdf4e9] dark:from-zinc-900 dark:to-black">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-center text-orange-600 mb-8 md:mb-12 lg:mb-16 animate-slideInLeft">
+        Rent Prices
+      </h2>
+      <div class="grid md:grid-cols-2 gap-6 md:gap-8 lg:gap-12 mb-10 md:mb-12 lg:mb-16">
+        <div class="bg-white/90 dark:bg-zinc-800/90 backdrop-blur-sm p-6 sm:p-8 rounded-3xl border border-orange-300/50 dark:border-orange-600/30 hover:border-orange-400 dark:hover:border-orange-500 transition shadow-xl dark:shadow-orange-950/20 text-center animate-fadeInUp delay-100 transform hover:scale-105 hover:shadow-2xl duration-300">
+          <h3 class="text-2xl sm:text-3xl md:text-4xl font-bold text-orange-600 dark:text-orange-400 mb-3 md:mb-4">Single seat</h3>
+          <p class="text-3xl sm:text-4xl font-semibold text-gray-900 dark:text-white">25 € <span class="text-base sm:text-lg text-gray-700 dark:text-gray-300">first hour</span></p>
+          <p class="text-base sm:text-lg text-gray-700 dark:text-gray-400 mt-1">+10 € each additional hour</p>
+          <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-500 mt-4 md:mt-6">Max 15 people per roller (rental only, guide not included)</p>
+        </div>
+        <div class="bg-white/90 dark:bg-zinc-800/90 backdrop-blur-sm p-6 sm:p-8 rounded-3xl border border-orange-300/50 dark:border-orange-600/30 hover:border-orange-400 dark:hover:border-orange-500 transition shadow-xl dark:shadow-orange-950/20 text-center animate-fadeInUp delay-200 transform hover:scale-105 hover:shadow-2xl duration-300">
+          <h3 class="text-2xl sm:text-3xl md:text-4xl font-bold text-orange-600 dark:text-orange-400 mb-3 md:mb-4">Double seat</h3>
+          <p class="text-3xl sm:text-4xl font-semibold text-gray-900 dark:text-white">35 € <span class="text-base sm:text-lg text-gray-700 dark:text-gray-300">first hour</span></p>
+          <p class="text-base sm:text-lg text-gray-700 dark:text-gray-400 mt-1">+15 € each additional hour</p>
+          <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-500 mt-4 md:mt-6">Max 15 people per roller (rental only, guide not included)</p>
+        </div>
+      </div>
+      <p class="text-base sm:text-lg md:text-xl text-center text-gray-800 dark:text-gray-300 mb-8 md:mb-10 max-w-4xl mx-auto font-light animate-fadeInUp delay-300">
+        You can rent anytime – just come directly to the office or call/WhatsApp us to reserve in advance.
+      </p>
+    </div>
+  </section>
+
+  <!-- Booking + Important Info -->
+  <section class="py-12 sm:py-16 md:py-24 lg:py-32 bg-gradient-to-b from-[#fdf4e9] to-white dark:from-black dark:to-zinc-900">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-3 gap-6 lg:gap-8 lg:gap-12">
+        <!-- Form -->
+        <div class="lg:col-span-2 bg-white/90 dark:bg-zinc-800/90 backdrop-blur-sm p-6 sm:p-8 md:p-10 lg:p-12 rounded-3xl border border-orange-300/40 dark:border-orange-600/30 shadow-xl dark:shadow-orange-950/20 animate-slideInLeft delay-100">
+          <h3 class="text-xl sm:text-2xl md:text-3xl font-bold text-orange-600 dark:text-orange-400 mb-6 md:mb-8 text-center">
+            Book Your Ride
+          </h3>
+          <form id="bookingForm" netlify name="monster-roller-booking" method="POST">
+            <input type="hidden" name="form-name" value="monster-roller-booking">
+
+            <!-- Rental Type + фото -->
+            <div class="mb-8">
+              <div class="flex justify-center mb-6">
+                <img id="rollerImage" src="/images/single-seat.jpg" alt="Selected Roller Model" class="w-48 h-48 sm:w-64 sm:h-64 md:w-72 md:h-72 object-cover rounded-2xl shadow-2xl border-4 border-orange-500/60 transition-all duration-500 animate-float" />
+              </div>
+              <div class="grid grid-cols-2 gap-4">
+                <button type="button" id="singleBtn" class="py-5 rounded-2xl border-2 border-orange-500 dark:border-orange-500 bg-orange-500/10 dark:bg-orange-600/20 text-black dark:text-white font-semibold active transition-colors transform hover:scale-105 duration-200 animate-scaleIn">Single seat</button>
+                <button type="button" id="doubleBtn" class="py-5 rounded-2xl border-2 border-orange-400 dark:border-orange-600 hover:border-orange-500 dark:hover:border-orange-500 text-black dark:text-white font-semibold transition-colors transform hover:scale-105 duration-200 animate-scaleIn delay-100">Double seat</button>
+              </div>
+            </div>
+
+            <!-- Full Name -->
+            <div class="mb-6 md:mb-8">
+              <label class="block text-base md:text-lg mb-2 md:mb-3 text-gray-700 dark:text-gray-300">Full Name</label>
+              <input type="text" id="fullName" name="fullName" required placeholder="John Doe" class="w-full p-3 md:p-4 bg-white dark:bg-zinc-700 border border-gray-300 dark:border-zinc-600 rounded-2xl text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:border-orange-500 dark:focus:border-orange-500 focus:ring-orange-500 transition-colors" />
+            </div>
+
+            <!-- Email or WhatsApp Number -->
+            <div class="mb-6 md:mb-8">
+              <label class="block text-base md:text-lg mb-2 md:mb-3 text-gray-700 dark:text-gray-300">Email or WhatsApp Number</label>
+              <input type="text" id="contact" name="contact" required placeholder="example@email.com or +36301234567" class="w-full p-3 md:p-4 bg-white dark:bg-zinc-700 border border-gray-300 dark:border-zinc-600 rounded-2xl text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:border-orange-500 dark:focus:border-orange-500 focus:ring-orange-500 transition-colors" />
+              <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">We will reply via WhatsApp or email</p>
+            </div>
+
+            <!-- Date & Time -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-6 mb-6 md:mb-8">
+              <div>
+                <label class="block text-sm md:text-base lg:text-lg mb-2 md:mb-3 text-gray-700 dark:text-gray-300">Date</label>
+                <input type="date" id="date" name="date" required min="2026-02-21" class="w-full p-1.5 md:p-3 bg-white dark:bg-zinc-700 border border-gray-300 dark:border-zinc-600 rounded-2xl text-xs md:text-sm text-gray-900 dark:text-white focus:border-orange-500 dark:focus:border-orange-500 focus:ring-orange-500 transition-colors">
+              </div>
+              <div>
+                <label class="block text-sm md:text-base lg:text-lg mb-2 md:mb-3 text-gray-700 dark:text-gray-300">Time</label>
+                <input type="time" id="time" name="time" required min="10:00" max="18:00" step="900" class="w-full p-1.5 md:p-3 bg-white dark:bg-zinc-700 border border-gray-300 dark:border-zinc-600 rounded-2xl text-xs md:text-sm text-gray-900 dark:text-white focus:border-orange-500 dark:focus:border-orange-500 focus:ring-orange-500 transition-colors">
+                <p class="text-xs text-gray-500 dark:text-gray-400 mt-1 text-center">
+                  Booking available 10:00–18:00
+                </p>
+              </div>
+            </div>
+
+            <!-- Hours & Number of people -->
+            <div class="grid grid-cols-2 gap-3 md:gap-6 mb-6 md:mb-8">
+              <div>
+                <label class="block text-sm md:text-base lg:text-lg mb-2 md:mb-3 text-gray-700 dark:text-gray-300">How many hours?</label>
+                <select id="hours" name="hours" required class="w-full p-2 md:p-4 bg-white dark:bg-zinc-700 border border-gray-300 dark:border-zinc-600 rounded-2xl text-xs md:text-base text-gray-900 dark:text-white focus:border-orange-500 dark:focus:border-orange-500 focus:ring-orange-500 transition-colors">
+                  <option value="1">1 hour</option>
+                  <option value="2" selected>2 hours</option>
+                  <option value="3">3 hours</option>
+                  <option value="4">4 hours</option>
+                  <option value="5">5 hours</option>
+                  <option value="6">6+ hours (contact us)</option>
+                </select>
+              </div>
+              <div>
+                <label class="block text-sm md:text-base lg:text-lg mb-2 md:mb-3 text-gray-700 dark:text-gray-300">People</label>
+                <input type="number" id="people" name="people" min="1" max="15" value="1" required class="w-full p-2 md:p-4 bg-white dark:bg-zinc-700 border border-gray-300 dark:border-zinc-600 rounded-2xl text-gray-900 dark:text-white focus:border-orange-500 dark:focus:border-orange-500 focus:ring-orange-500 transition-colors text-center text-base md:text-lg">
+                <p id="peopleNote" class="text-xs text-orange-500 dark:text-orange-400 mt-1 text-center"></p>
+              </div>
+            </div>
+
+            <!-- Notes -->
+            <div class="mb-6 md:mb-8">
+              <label class="block text-base md:text-lg mb-2 md:mb-3 text-gray-700 dark:text-gray-300">Notes / Special Requests</label>
+              <textarea id="notes" name="notes" rows="3" placeholder="Any special requests? (e.g., music, group size, meeting point)" class="w-full p-3 md:p-4 bg-white dark:bg-zinc-700 border border-gray-300 dark:border-zinc-600 rounded-2xl text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:border-orange-500 dark:focus:border-orange-500 focus:ring-orange-500 transition-colors resize-none"></textarea>
+              <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">Optional — tell us what you need!</p>
+            </div>
+
+            <!-- Total Price -->
+            <div class="bg-white/80 dark:bg-zinc-700/80 p-5 md:p-6 rounded-2xl mb-6 md:mb-8 text-center shadow-inner animate-scaleInSlow">
+              <p class="text-sm text-gray-600 dark:text-gray-400">Estimated total (rental only, guide not included)</p>
+              <p id="totalPrice" class="text-4xl md:text-5xl font-black text-orange-600 dark:text-orange-400">50 €</p>
+            </div>
+
+            <button type="submit" class="w-full bg-orange-500 hover:bg-orange-400 dark:bg-orange-600 dark:hover:bg-orange-500 text-black dark:text-white font-bold text-xl md:text-2xl py-5 md:py-6 rounded-full transition transform hover:scale-105 duration-300 animate-fadeInUp delay-300">
+              Send Booking Request
+            </button>
+          </form>
+        </div>
+
+        <!-- Important Info -->
+        <div class="lg:col-span-1 bg-white/90 dark:bg-zinc-800/90 backdrop-blur-sm p-6 md:p-8 lg:p-10 rounded-3xl border border-orange-300/40 dark:border-orange-600/30 shadow-xl dark:shadow-orange-950/20 animate-slideInRight delay-100">
+          <h4 class="text-xl md:text-2xl lg:text-3xl font-black text-orange-600 dark:text-orange-400 mb-6 md:mb-8 text-center tracking-wide">
+            Important Info
+          </h4>
+          <ul class="space-y-4 md:space-y-6 text-gray-800 dark:text-gray-300 text-base md:text-lg">
+            <li class="flex items-start gap-3 md:gap-4 animate-fadeInUp delay-100">
+              <span class="text-xl md:text-2xl flex-shrink-0">👥</span>
+              <span>Max 15 people per roller (both Single & Double)</span>
+            </li>
+            <li class="flex items-start gap-3 md:gap-4 animate-fadeInUp delay-200">
+              <span class="text-xl md:text-2xl flex-shrink-0">💶</span>
+              <span>
+                Prices are for rental only – 
+                <span class="text-red-500 dark:text-red-400 font-bold animate-pulse-slow">guide not included</span>
+              </span>
+            </li>
+            <li class="flex items-start gap-3 md:gap-4 animate-fadeInUp delay-300">
+              <span class="text-xl md:text-2xl flex-shrink-0">📱</span>
+              <span>For groups >15 people – contact us via WhatsApp/email</span>
+            </li>
+            <li class="flex items-start gap-3 md:gap-4 animate-fadeInUp delay-400">
+              <span class="text-xl md:text-2xl flex-shrink-0">⛑️</span>
+              <span>Helmets provided free of charge</span>
+            </li>
+            <li class="flex items-start gap-3 md:gap-4 animate-fadeInUp">
+              <span class="text-xl md:text-2xl flex-shrink-0">⏰</span>
+              <span>Minimum rental 1 hour</span>
+            </li>
+            <li class="flex items-start gap-3 md:gap-4 animate-fadeInUp">
+              <span class="text-xl md:text-2xl flex-shrink-0">🔒</span>
+              <span>Deposit may be required for larger groups</span>
+            </li>
+          </ul>
+          <div class="mt-8 md:mt-10 pt-5 md:pt-6 border-t border-orange-300/30 dark:border-orange-600/20 text-center text-sm md:text-base text-gray-700 dark:text-gray-300">
+            <p class="font-medium">
+              We'll reply within 15–30 minutes.
+            </p>
+            <p class="mt-2">
+              Or message us on WhatsApp right now! <span class="text-orange-500 dark:text-orange-400">👉</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- JavaScript -->
+  <script>
+    const singleBtn = document.getElementById('singleBtn');
+    const doubleBtn = document.getElementById('doubleBtn');
+    const peopleInput = document.getElementById('people');
+    const priceDisplay = document.getElementById('totalPrice');
+    const hoursSelect = document.getElementById('hours');
+    const timeInput = document.getElementById('time');
+    const rollerImage = document.getElementById('rollerImage');
+    
+    let isDouble = false;
+
+    const SINGLE_SEAT = { base: 25, extra: 10, image: "/images/single-seat.jpg" };
+    const DOUBLE_SEAT = { base: 35, extra: 15, image: "/images/double-seat.jpg" };
+
+    function updatePrice() {
+      const hours = parseInt(hoursSelect.value) || 1;
+      const people = parseInt(peopleInput.value) || 1;
+      
+      const { base, extra } = isDouble ? DOUBLE_SEAT : SINGLE_SEAT;
+      const totalPerRoller = base + (hours - 1) * extra;
+      const total = totalPerRoller * people;
+
+      priceDisplay.textContent = `${total} €`;
+      
+      // Add pulse animation when price updates
+      priceDisplay.classList.remove('animate-pulse-slow');
+      void priceDisplay.offsetWidth; // Trigger reflow
+      priceDisplay.classList.add('animate-pulse-slow');
+    }
+
+    function setRollerType(isDoubleSeat) {
+      isDouble = isDoubleSeat;
+      const { image } = isDouble ? DOUBLE_SEAT : SINGLE_SEAT;
+      
+      if (isDoubleSeat) {
+        doubleBtn.classList.add('active', 'border-orange-500', 'bg-orange-500/10', 'dark:bg-orange-600/20');
+        singleBtn.classList.remove('active', 'border-orange-500', 'bg-orange-500/10', 'dark:bg-orange-600/20');
+      } else {
+        singleBtn.classList.add('active', 'border-orange-500', 'bg-orange-500/10', 'dark:bg-orange-600/20');
+        doubleBtn.classList.remove('active', 'border-orange-500', 'bg-orange-500/10', 'dark:bg-orange-600/20');
+      }
+      
+      rollerImage.src = image;
+      updatePrice();
+    }
+
+    singleBtn.addEventListener('click', () => setRollerType(false));
+    doubleBtn.addEventListener('click', () => setRollerType(true));
+    hoursSelect.addEventListener('change', updatePrice);
+    peopleInput.addEventListener('input', updatePrice);
+
+    timeInput.addEventListener('focus', () => {
+      if (!timeInput.value) timeInput.value = '10:00';
+    });
+
+    timeInput.addEventListener('change', () => {
+      const time = timeInput.value;
+      if (time && (time < '10:00' || time > '18:00')) {
+        timeInput.value = time < '10:00' ? '10:00' : '18:00';
+      }
+    });
+
+    updatePrice();
+  </script>
+</Layout>
