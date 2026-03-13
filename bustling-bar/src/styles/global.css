@@ -1185,6 +1185,40 @@ html.dark .session-selector-section {
   }
 }
 
+@media (min-width: 641px) and (max-width: 1024px) {
+  .session-card-content {
+    padding-bottom: 2.9rem;
+  }
+
+  .session-card-head {
+    display: block;
+  }
+
+  .session-price {
+    position: absolute;
+    right: 0;
+    left: auto;
+    bottom: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24%;
+    min-width: 0;
+    margin: 0;
+    padding: 0.58rem 0.24rem;
+    font-size: 0.8rem;
+  }
+
+  .session-reserve-btn {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 74%;
+    min-width: 0;
+    margin-top: 0;
+  }
+}
+
 html.light .session-card h3,
 html.light .session-card p,
 html.light .session-card .session-price,
