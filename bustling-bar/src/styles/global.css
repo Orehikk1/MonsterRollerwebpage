@@ -361,6 +361,227 @@ html.dark header {
   background-color: #000000;
 }
 
+/* Day/Night toggle */
+.day-night-toggle {
+  position: relative;
+  width: 80px;
+  height: 40px;
+  border: 0;
+  border-radius: 50px;
+  padding: 0;
+  overflow: hidden;
+  background: linear-gradient(135deg, #87CEEB, #4A90D9);
+  transition: background 0.6s ease;
+}
+
+.day-night-toggle.is-night {
+  background: linear-gradient(135deg, #0f0c29, #1a1a2e);
+}
+
+.toggle-thumb {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  background: radial-gradient(circle at 32% 30%, #ffe07a 0%, #f9c933 42%, #f5a623 100%);
+  border: 1px solid rgba(255, 190, 40, 0.9);
+  transform: translateX(0);
+  transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55), background 0.4s ease;
+  box-shadow:
+    inset 0 -2px 6px rgba(0, 0, 0, 0.16),
+    0 2px 8px rgba(245, 166, 35, 0.35);
+}
+
+.day-night-toggle.is-night .toggle-thumb {
+  transform: translateX(40px);
+  background: #D4D4D4;
+  border-color: transparent;
+  box-shadow: inset 0 -2px 6px rgba(0, 0, 0, 0.18);
+}
+
+.toggle-thumb::before {
+  content: '';
+  position: absolute;
+  inset: 14px;
+  border-radius: 999px;
+  box-shadow:
+    0 -16px 0 0 rgba(255, 211, 77, 0.95),
+    11px -11px 0 0 rgba(255, 211, 77, 0.95),
+    16px 0 0 0 rgba(255, 211, 77, 0.95),
+    11px 11px 0 0 rgba(255, 211, 77, 0.95),
+    0 16px 0 0 rgba(255, 211, 77, 0.95),
+    -11px 11px 0 0 rgba(255, 211, 77, 0.95),
+    -16px 0 0 0 rgba(255, 211, 77, 0.95),
+    -11px -11px 0 0 rgba(255, 211, 77, 0.95);
+  opacity: 1;
+  transition: opacity 0.25s ease;
+}
+
+.toggle-thumb::after {
+  content: '';
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.45);
+  filter: blur(0.2px);
+  opacity: 1;
+  transition: opacity 0.25s ease;
+}
+
+.day-night-toggle.is-night .toggle-thumb::before {
+  opacity: 0;
+}
+
+.day-night-toggle.is-night .toggle-thumb::after {
+  opacity: 0;
+}
+
+.toggle-craters,
+.toggle-craters::before,
+.toggle-craters::after {
+  position: absolute;
+  border-radius: 999px;
+  background: #b3b3b3;
+  opacity: 0;
+  transition: opacity 0.28s ease;
+  content: '';
+}
+
+.toggle-craters {
+  width: 7px;
+  height: 7px;
+  left: 10px;
+  top: 10px;
+}
+
+.toggle-craters::before {
+  width: 5px;
+  height: 5px;
+  left: 10px;
+  top: 5px;
+}
+
+.toggle-craters::after {
+  width: 6px;
+  height: 6px;
+  left: 6px;
+  top: 14px;
+}
+
+.day-night-toggle.is-night .toggle-craters,
+.day-night-toggle.is-night .toggle-craters::before,
+.day-night-toggle.is-night .toggle-craters::after {
+  opacity: 0.95;
+}
+
+.toggle-stars {
+  position: absolute;
+  left: 8px;
+  top: 6px;
+  width: 30px;
+  height: 28px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.day-night-toggle.is-night .toggle-stars {
+  opacity: 1;
+  animation: stars-fade 0.35s ease both;
+}
+
+.toggle-stars span {
+  position: absolute;
+  border-radius: 999px;
+  background: white;
+}
+
+.toggle-stars span:nth-child(1) { width: 2px; height: 2px; left: 2px; top: 4px; }
+.toggle-stars span:nth-child(2) { width: 3px; height: 3px; left: 10px; top: 2px; }
+.toggle-stars span:nth-child(3) { width: 2px; height: 2px; left: 18px; top: 6px; }
+.toggle-stars span:nth-child(4) { width: 4px; height: 4px; left: 4px; top: 13px; }
+.toggle-stars span:nth-child(5) { width: 2px; height: 2px; left: 14px; top: 15px; }
+.toggle-stars span:nth-child(6) { width: 3px; height: 3px; left: 23px; top: 12px; }
+
+.toggle-clouds {
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  width: 28px;
+  height: 24px;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.day-night-toggle.is-night .toggle-clouds {
+  opacity: 0;
+}
+
+.toggle-cloud {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 999px;
+}
+
+.toggle-cloud::before,
+.toggle-cloud::after {
+  content: '';
+  position: absolute;
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 999px;
+}
+
+.toggle-cloud.c1 {
+  width: 12px;
+  height: 6px;
+  right: 0;
+  top: 2px;
+}
+
+.toggle-cloud.c1::before {
+  width: 7px;
+  height: 7px;
+  left: 2px;
+  top: -4px;
+}
+
+.toggle-cloud.c1::after {
+  width: 6px;
+  height: 6px;
+  left: 7px;
+  top: -3px;
+}
+
+.toggle-cloud.c2 {
+  width: 15px;
+  height: 7px;
+  right: 7px;
+  top: 12px;
+}
+
+.toggle-cloud.c2::before {
+  width: 8px;
+  height: 8px;
+  left: 1px;
+  top: -5px;
+}
+
+.toggle-cloud.c2::after {
+  width: 7px;
+  height: 7px;
+  left: 8px;
+  top: -4px;
+}
+
+@keyframes stars-fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
 /* Light mode - background for content sections */
 html.light section[class*="py-"] {
   background: #fffaf0 !important;
