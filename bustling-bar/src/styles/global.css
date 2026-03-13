@@ -99,12 +99,35 @@ html.light p:not([class*="text-orange"]):not([class*="text-red"]) {
   color: #1f2937 !important;
 }
 
+html.light .session-card .session-name,
+html.light .session-card .session-card-subtitle,
+html.light .session-card .session-duration,
+html.light .session-card .session-description,
+html.light .session-card .session-price,
+html.light .session-card .session-tags span {
+  color: white !important;
+}
+
+html.light .session-card .session-card-subtitle {
+  color: rgba(255, 255, 255, 0.65) !important;
+}
+
+html.light .session-card .session-duration {
+  color: rgba(255, 255, 255, 0.75) !important;
+}
+
+html.light .session-card .session-description {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
 /* Force hero paragraph to be white in light mode */
 html.light div[class*="absolute"][class*="inset-0"] p {
   color: white !important;
 }
 
 html.light input[type="text"],
+html.light input[type="email"],
+html.light input[type="tel"],
 html.light input[type="date"],
 html.light input[type="time"],
 html.light input[type="number"],
@@ -369,6 +392,10 @@ html.light section[class*="from-[#"] {
   background: linear-gradient(to bottom, #fdf4e9, #fffaf0);
 }
 
+html.light .session-selector-section {
+  background: linear-gradient(to bottom, #fdf4e9, #fffaf0) !important;
+}
+
 html.dark .session-selector-section {
   background: linear-gradient(to bottom, #18181b, #000000);
 }
@@ -548,6 +575,7 @@ html.dark .session-selector-section {
   position: relative;
   z-index: 2;
   margin-top: auto;
+  color: white;
 }
 
 .session-card-head {
@@ -605,6 +633,7 @@ html.dark .session-selector-section {
   font-family: 'DM Sans', sans-serif;
   font-size: 13px;
   font-weight: 400;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.55);
 }
 
 .session-description {
@@ -619,6 +648,16 @@ html.dark .session-selector-section {
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.55);
+}
+
+.session-card-content .session-duration,
+.session-card-content .session-description {
+  color: rgba(255, 255, 255, 0.88) !important;
+}
+
+.session-card-content .session-description {
+  color: rgba(255, 255, 255, 0.82) !important;
 }
 
 .session-tags {
@@ -808,5 +847,24 @@ html.dark .session-selector-section {
     height: 372px;
     flex-basis: 225px;
   }
+}
+
+html.light .session-card h3,
+html.light .session-card p,
+html.light .session-card .session-price,
+html.light .session-card .session-tags span {
+  color: white !important;
+}
+
+html.light .session-card .session-card-subtitle {
+  color: rgba(255, 255, 255, 0.65) !important;
+}
+
+html.light .session-card .session-duration {
+  color: rgba(255, 255, 255, 0.75) !important;
+}
+
+html.light .session-card .session-description {
+  color: rgba(255, 255, 255, 0.7) !important;
 }
 

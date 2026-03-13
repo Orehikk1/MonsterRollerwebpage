@@ -211,8 +211,8 @@ import Layout from '../layouts/Layout.astro';
               </div>
               <span class="session-price">€35</span>
             </div>
-            <p class="session-duration">60 minutes</p>
-            <p class="session-description">Liberty Bridge, Statue of Liberty &amp; Philosophers' Garden — a quick ride up to the Citadel.</p>
+            <p class="session-duration" style="color: rgba(255, 255, 255, 0.92) !important;">60 minutes</p>
+            <p class="session-description" style="color: rgba(255, 255, 255, 0.86) !important;">Liberty Bridge, Statue of Liberty &amp; Philosophers' Garden — a quick ride up to the Citadel.</p>
             <div class="session-tags">
               <span>Quick Ride</span>
               <span>10 Photospots</span>
@@ -230,8 +230,8 @@ import Layout from '../layouts/Layout.astro';
               </div>
               <span class="session-price">€49</span>
             </div>
-            <p class="session-duration">90 minutes</p>
-            <p class="session-description">Elizabeth Bridge, Buda Castle, Chain Bridge &amp; Fisherman's Bastion — Budapest's most iconic landmarks.</p>
+            <p class="session-duration" style="color: rgba(255, 255, 255, 0.92) !important;">90 minutes</p>
+            <p class="session-description" style="color: rgba(255, 255, 255, 0.86) !important;">Elizabeth Bridge, Buda Castle, Chain Bridge &amp; Fisherman's Bastion — Budapest's most iconic landmarks.</p>
             <div class="session-tags">
               <span>Most Popular</span>
               <span>20 Photospots</span>
@@ -250,8 +250,8 @@ import Layout from '../layouts/Layout.astro';
               </div>
               <span class="session-price">€59</span>
             </div>
-            <p class="session-duration">120 minutes</p>
-            <p class="session-description">Basilica, Parliament, Buda Castle &amp; Fisherman's Bastion — the best of both sides of the city.</p>
+            <p class="session-duration" style="color: rgba(255, 255, 255, 0.92) !important;">120 minutes</p>
+            <p class="session-description" style="color: rgba(255, 255, 255, 0.86) !important;">Basilica, Parliament, Buda Castle &amp; Fisherman's Bastion — the best of both sides of the city.</p>
             <div class="session-tags">
               <span>Best Value</span>
               <span>25 Photospots</span>
@@ -269,8 +269,8 @@ import Layout from '../layouts/Layout.astro';
               </div>
               <span class="session-price">€69</span>
             </div>
-            <p class="session-duration">180 minutes</p>
-            <p class="session-description">Parliament, Margaret Island, Chain Bridge &amp; 30 photo stops — the full Budapest experience.</p>
+            <p class="session-duration" style="color: rgba(255, 255, 255, 0.92) !important;">180 minutes</p>
+            <p class="session-description" style="color: rgba(255, 255, 255, 0.86) !important;">Parliament, Margaret Island, Chain Bridge &amp; 30 photo stops — the full Budapest experience.</p>
             <div class="session-tags">
               <span>Group Pick</span>
               <span>30 Photospots</span>
@@ -288,8 +288,8 @@ import Layout from '../layouts/Layout.astro';
               </div>
               <span class="session-price">€49</span>
             </div>
-            <p class="session-duration">90 minutes</p>
-            <p class="session-description">Musical Fountain, Japanese Garden &amp; monastery ruins — a peaceful escape on Margaret Island.</p>
+            <p class="session-duration" style="color: rgba(255, 255, 255, 0.92) !important;">90 minutes</p>
+            <p class="session-description" style="color: rgba(255, 255, 255, 0.86) !important;">Musical Fountain, Japanese Garden &amp; monastery ruins — a peaceful escape on Margaret Island.</p>
             <div class="session-tags">
               <span>Scenic Route</span>
               <span>20 Photospots</span>
@@ -400,6 +400,9 @@ import Layout from '../layouts/Layout.astro';
     const nextBtn = document.getElementById('sessionNext');
     const defaultSessionIndex = 2;
     let activeSessionIndex = defaultSessionIndex;
+    let isProgrammaticScroll = false;
+    let programmaticScrollTimer;
+    let isInitialSelectionLock = true;
 
     function setActiveSession(index) {
       activeSessionIndex = index;
@@ -421,10 +424,22 @@ import Layout from '../layouts/Layout.astro';
       const delta = cardCenterX - sliderCenterX;
       const targetLeft = sessionSlider.scrollLeft + delta;
 
+      if (smooth) {
+        isProgrammaticScroll = true;
+        clearTimeout(programmaticScrollTimer);
+      }
+
       sessionSlider.scrollTo({
         left: Math.max(0, targetLeft),
         behavior: smooth ? 'smooth' : 'auto'
       });
+
+      if (smooth) {
+        programmaticScrollTimer = setTimeout(() => {
+          isProgrammaticScroll = false;
+          setActiveSession(index);
+        }, 420);
+      }
     }
 
     function bindSessionEvents() {
@@ -454,6 +469,8 @@ import Layout from '../layouts/Layout.astro';
       });
 
       sessionSlider.addEventListener('scroll', () => {
+        if (isProgrammaticScroll || isInitialSelectionLock) return;
+
         let closestIndex = activeSessionIndex;
         let closestDistance = Infinity;
         sessionCards.forEach((card, index) => {
@@ -490,14 +507,31 @@ import Layout from '../layouts/Layout.astro';
       requestAnimationFrame(() => centerCard(defaultSessionIndex, false));
 
       // Recenter after fonts/images/layout settle to keep desktop aligned.
-      setTimeout(() => centerCard(defaultSessionIndex, false), 140);
-      setTimeout(() => centerCard(defaultSessionIndex, false), 420);
+      setTimeout(() => {
+        centerCard(defaultSessionIndex, false);
+        setActiveSession(defaultSessionIndex);
+      }, 140);
+      setTimeout(() => {
+        centerCard(defaultSessionIndex, false);
+        setActiveSession(defaultSessionIndex);
+      }, 420);
 
       if (document.fonts && document.fonts.ready) {
-        document.fonts.ready.then(() => centerCard(activeSessionIndex, false));
+        document.fonts.ready.then(() => {
+          centerCard(defaultSessionIndex, false);
+          setActiveSession(defaultSessionIndex);
+        });
       }
 
-      window.addEventListener('load', () => centerCard(activeSessionIndex, false));
+      window.addEventListener('load', () => {
+        centerCard(defaultSessionIndex, false);
+        setActiveSession(defaultSessionIndex);
+      });
+
+      setTimeout(() => {
+        isInitialSelectionLock = false;
+        setActiveSession(defaultSessionIndex);
+      }, 700);
 
       let resizeTimer;
       window.addEventListener('resize', () => {
