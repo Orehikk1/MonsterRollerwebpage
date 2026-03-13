@@ -371,6 +371,31 @@ html.light section[class*="from-[#"] {
   background: #fffaf0 !important;
 }
 
+/* Cookie banner contrast */
+html.light #cookie-consent > div {
+  background: rgba(255, 255, 255, 0.96) !important;
+  color: #111827 !important;
+  border-color: rgba(251, 146, 60, 0.55) !important;
+}
+
+html.light #cookie-consent p {
+  color: #1f2937 !important;
+}
+
+html.light #cookie-decline {
+  color: #374151 !important;
+  border-color: #d1d5db !important;
+}
+
+html.dark #cookie-consent > div {
+  background: rgba(24, 24, 27, 0.95) !important;
+  color: #f8fafc !important;
+}
+
+html.dark #cookie-consent p {
+  color: #e5e7eb !important;
+}
+
 /* Session selector */
 :root {
   --session-accent: #1D9E75;
