@@ -33,7 +33,7 @@ const { title = "Monster Roller Budapest" } = Astro.props;
 </head>
 <body class="min-h-screen flex flex-col">
   <!-- Header — кремовый по умолчанию -->
-  <header class="fixed top-0 left-0 right-0 z-50 bg-[#fffaf0] dark:bg-[#0f1419] backdrop-blur-xl border-b border-orange-300/50 dark:border-[#3d4a7a] shadow-lg">
+  <header id="site-header" class="fixed top-0 left-0 right-0 z-50 bg-[#fffaf0] dark:bg-[#0f1419] backdrop-blur-xl border-b border-orange-300/50 dark:border-[#3d4a7a] shadow-lg transition-transform duration-300 will-change-transform">
     <nav class="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
       <a href="/" class="text-2xl sm:text-3xl font-black text-orange-600 dark:text-orange-400 tracking-wider">
         MONSTER ROLLER
@@ -114,6 +114,8 @@ const { title = "Monster Roller Budapest" } = Astro.props;
       const toggle = document.getElementById('theme-toggle');
       const sun = document.getElementById('sun-icon');
       const moon = document.getElementById('moon-icon');
+      const siteHeader = document.getElementById('site-header');
+      let lastScrollY = window.scrollY;
       
       function setTheme(theme) {
         document.documentElement.classList.remove('dark', 'light');
@@ -143,6 +145,28 @@ const { title = "Monster Roller Budapest" } = Astro.props;
         const isDark = document.documentElement.classList.contains('dark');
         setTheme(isDark ? 'light' : 'dark');
       });
+
+      // Hide header on scroll down, show on scroll up
+      window.addEventListener('scroll', () => {
+        if (!siteHeader) return;
+
+        const currentY = window.scrollY;
+        const directionDelta = currentY - lastScrollY;
+
+        if (currentY <= 10) {
+          siteHeader.classList.remove('-translate-y-full');
+          lastScrollY = currentY;
+          return;
+        }
+
+        if (directionDelta > 8) {
+          siteHeader.classList.add('-translate-y-full');
+        } else if (directionDelta < -8) {
+          siteHeader.classList.remove('-translate-y-full');
+        }
+
+        lastScrollY = currentY;
+      }, { passive: true });
     });
   </script>
   <script defer src="/_vercel/insights/script.js"></script>
