@@ -552,18 +552,31 @@ html.dark .session-selector-section {
 
 .session-card-head {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   gap: 0.5rem;
+}
+
+.session-name-wrap {
+  min-width: 0;
 }
 
 .session-name {
   color: white;
   font-family: 'Syne', sans-serif;
-  font-size: 1.26rem;
-  line-height: 1.02;
+  font-size: 20px;
+  line-height: 1.04;
   font-weight: 800;
   margin: 0;
+}
+
+.session-card-subtitle {
+  margin-top: 0.18rem;
+  color: rgba(255, 255, 255, 0.65);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  line-height: 1.2;
+  font-weight: 400;
 }
 
 .session-price,
@@ -586,20 +599,26 @@ html.dark .session-selector-section {
 }
 
 .session-duration {
-  margin-top: 0.5rem;
+  margin-top: 0.45rem;
   margin-bottom: 0.45rem;
-  color: rgba(255, 255, 255, 0.78);
+  color: rgba(255, 255, 255, 0.75);
   font-family: 'DM Sans', sans-serif;
-  font-size: 0.78rem;
+  font-size: 13px;
   font-weight: 400;
 }
 
 .session-description {
-  color: rgba(255, 255, 255, 0.76);
+  color: rgba(255, 255, 255, 0.7);
   font-family: 'DM Sans', sans-serif;
-  font-size: 0.78rem;
-  line-height: 1.45;
-  min-height: 4.1em;
+  font-size: 12px;
+  line-height: 1.35;
+  min-height: 2.7em;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .session-tags {
@@ -739,17 +758,17 @@ html.dark .session-selector-section {
   }
 
   .session-name {
-    font-size: 1.5rem;
+    font-size: 20px;
   }
 
   .session-duration {
-    font-size: 0.84rem;
+    font-size: 13px;
   }
 
   .session-description {
-    font-size: 0.84rem;
-    line-height: 1.48;
-    min-height: 4.6em;
+    font-size: 12px;
+    line-height: 1.35;
+    min-height: 2.7em;
   }
 
   .session-tags span {

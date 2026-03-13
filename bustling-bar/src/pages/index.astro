@@ -26,7 +26,7 @@ import Layout from '../layouts/Layout.astro';
   </div>
 
   <!-- Rent Prices -->
-  <section class="py-12 sm:py-16 md:py-24 lg:py-32 bg-gradient-to-b from-[#fffaf0] to-[#fdf4e9] dark:from-zinc-900 dark:to-black">
+  <section class="py-12 sm:py-16 md:py-20 lg:py-24 bg-gradient-to-b from-[#fffaf0] to-[#fdf4e9] dark:from-zinc-900 dark:to-black">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-center text-orange-600 mb-8 md:mb-12 lg:mb-16 animate-slideInLeft">
         Rent Prices
@@ -45,14 +45,11 @@ import Layout from '../layouts/Layout.astro';
           <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-500 mt-4 md:mt-6">Max 15 people per roller (rental only, guide not included)</p>
         </div>
       </div>
-      <p class="text-base sm:text-lg md:text-xl text-center text-gray-800 dark:text-gray-300 mb-8 md:mb-10 max-w-4xl mx-auto font-light animate-fadeInUp delay-300">
-        You can rent anytime – just come directly to the office or call/WhatsApp us to reserve in advance.
-      </p>
     </div>
   </section>
 
   <!-- Booking + Important Info -->
-  <section class="py-12 sm:py-16 md:py-24 lg:py-32 bg-gradient-to-b from-[#fdf4e9] to-white dark:from-black dark:to-zinc-900">
+  <section id="book-your-ride" class="py-10 sm:py-14 md:py-18 lg:py-22 bg-gradient-to-b from-[#fdf4e9] to-white dark:from-black dark:to-zinc-900">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid lg:grid-cols-3 gap-6 lg:gap-8 lg:gap-12">
         <!-- Form -->
@@ -80,11 +77,16 @@ import Layout from '../layouts/Layout.astro';
               <input type="text" id="fullName" name="fullName" required placeholder="John Doe" class="w-full p-3 md:p-4 bg-white dark:bg-zinc-700 border border-gray-300 dark:border-zinc-600 rounded-2xl text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:border-orange-500 dark:focus:border-orange-500 focus:ring-orange-500 transition-colors" />
             </div>
 
-            <!-- Email or WhatsApp Number -->
-            <div class="mb-6 md:mb-8">
-              <label class="block text-base md:text-lg mb-2 md:mb-3 text-gray-700 dark:text-gray-300">Email or WhatsApp Number</label>
-              <input type="text" id="contact" name="contact" required placeholder="example@email.com or +36301234567" class="w-full p-3 md:p-4 bg-white dark:bg-zinc-700 border border-gray-300 dark:border-zinc-600 rounded-2xl text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:border-orange-500 dark:focus:border-orange-500 focus:ring-orange-500 transition-colors" />
-              <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">We will reply via WhatsApp or email</p>
+            <!-- Email + WhatsApp Number -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-6 mb-6 md:mb-8">
+              <div>
+                <label class="block text-base md:text-lg mb-2 md:mb-3 text-gray-700 dark:text-gray-300">Email</label>
+                <input type="email" id="email" name="email" required placeholder="example@email.com" class="w-full p-3 md:p-4 bg-white dark:bg-zinc-700 border border-gray-300 dark:border-zinc-600 rounded-2xl text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:border-orange-500 dark:focus:border-orange-500 focus:ring-orange-500 transition-colors" />
+              </div>
+              <div>
+                <label class="block text-base md:text-lg mb-2 md:mb-3 text-gray-700 dark:text-gray-300">WhatsApp Number</label>
+                <input type="tel" id="phone" name="phone" required placeholder="+36301234567" class="w-full p-3 md:p-4 bg-white dark:bg-zinc-700 border border-gray-300 dark:border-zinc-600 rounded-2xl text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:border-orange-500 dark:focus:border-orange-500 focus:ring-orange-500 transition-colors" />
+              </div>
             </div>
 
             <!-- Date & Time -->
@@ -204,14 +206,16 @@ import Layout from '../layouts/Layout.astro';
           <div class="session-card-overlay"></div>
           <div class="session-card-content">
             <div class="session-card-head">
-              <h3 class="session-name">City Sprint</h3>
-              <span class="session-price">€25</span>
+              <div class="session-name-wrap">
+                <h3 class="session-name">Citadella Tour</h3>
+              </div>
+              <span class="session-price">€35</span>
             </div>
             <p class="session-duration">60 minutes</p>
-            <p class="session-description">A high-energy quick lap through iconic streets with enough time to feel the Beast.</p>
+            <p class="session-description">Liberty Bridge, Statue of Liberty &amp; Philosophers' Garden — a quick ride up to the Citadel.</p>
             <div class="session-tags">
-              <span>Solo Friendly</span>
               <span>Quick Ride</span>
+              <span>10 Photospots</span>
             </div>
             <button type="button" class="session-reserve-btn">Reserve</button>
           </div>
@@ -221,14 +225,16 @@ import Layout from '../layouts/Layout.astro';
           <div class="session-card-overlay"></div>
           <div class="session-card-content">
             <div class="session-card-head">
-              <h3 class="session-name">Blue Horizon</h3>
-              <span class="session-price">€45</span>
+              <div class="session-name-wrap">
+                <h3 class="session-name">Fisherman's Bastion Tour</h3>
+              </div>
+              <span class="session-price">€49</span>
             </div>
-            <p class="session-duration">120 minutes</p>
-            <p class="session-description">Longer route with scenic viewpoints and enough flexibility for photo stops.</p>
+            <p class="session-duration">90 minutes</p>
+            <p class="session-description">Elizabeth Bridge, Buda Castle, Chain Bridge &amp; Fisherman's Bastion — Budapest's most iconic landmarks.</p>
             <div class="session-tags">
-              <span>Scenic Route</span>
-              <span>Couples</span>
+              <span>Most Popular</span>
+              <span>20 Photospots</span>
             </div>
             <button type="button" class="session-reserve-btn">Reserve</button>
           </div>
@@ -239,14 +245,16 @@ import Layout from '../layouts/Layout.astro';
           <span class="session-popular-badge">Most Popular</span>
           <div class="session-card-content">
             <div class="session-card-head">
-              <h3 class="session-name">Night Pulse</h3>
-              <span class="session-price">€60</span>
+              <div class="session-name-wrap">
+                <h3 class="session-name">Buda + Pest Tour</h3>
+              </div>
+              <span class="session-price">€59</span>
             </div>
-            <p class="session-duration">180 minutes</p>
-            <p class="session-description">Best-value extended session with city lights, speed lines, and a full Budapest vibe.</p>
+            <p class="session-duration">120 minutes</p>
+            <p class="session-description">Basilica, Parliament, Buda Castle &amp; Fisherman's Bastion — the best of both sides of the city.</p>
             <div class="session-tags">
               <span>Best Value</span>
-              <span>Group Pick</span>
+              <span>25 Photospots</span>
             </div>
             <button type="button" class="session-reserve-btn">Reserve</button>
           </div>
@@ -256,14 +264,16 @@ import Layout from '../layouts/Layout.astro';
           <div class="session-card-overlay"></div>
           <div class="session-card-content">
             <div class="session-card-head">
-              <h3 class="session-name">Golden Drift</h3>
-              <span class="session-price">€80</span>
+              <div class="session-name-wrap">
+                <h3 class="session-name">Grand Tour</h3>
+              </div>
+              <span class="session-price">€69</span>
             </div>
-            <p class="session-duration">240 minutes</p>
-            <p class="session-description">Half-day adventure built for explorers who want distance, pace, and freedom.</p>
+            <p class="session-duration">180 minutes</p>
+            <p class="session-description">Parliament, Margaret Island, Chain Bridge &amp; 30 photo stops — the full Budapest experience.</p>
             <div class="session-tags">
-              <span>Half Day</span>
-              <span>Explorer</span>
+              <span>Group Pick</span>
+              <span>30 Photospots</span>
             </div>
             <button type="button" class="session-reserve-btn">Reserve</button>
           </div>
@@ -273,14 +283,16 @@ import Layout from '../layouts/Layout.astro';
           <div class="session-card-overlay"></div>
           <div class="session-card-content">
             <div class="session-card-head">
-              <h3 class="session-name">Sunset Blaze</h3>
-              <span class="session-price">€95</span>
+              <div class="session-name-wrap">
+                <h3 class="session-name">Island Tour</h3>
+              </div>
+              <span class="session-price">€49</span>
             </div>
-            <p class="session-duration">300 minutes</p>
-            <p class="session-description">Premium sunset-to-night route for riders who want maximum thrill and city energy.</p>
+            <p class="session-duration">90 minutes</p>
+            <p class="session-description">Musical Fountain, Japanese Garden &amp; monastery ruins — a peaceful escape on Margaret Island.</p>
             <div class="session-tags">
-              <span>Premium</span>
-              <span>Sunset</span>
+              <span>Scenic Route</span>
+              <span>20 Photospots</span>
             </div>
             <button type="button" class="session-reserve-btn">Reserve</button>
           </div>
@@ -467,6 +479,22 @@ import Layout from '../layouts/Layout.astro';
 
       setActiveSession(defaultSessionIndex);
       requestAnimationFrame(() => centerCard(defaultSessionIndex, false));
+
+      // Recenter after fonts/images/layout settle to keep desktop aligned.
+      setTimeout(() => centerCard(defaultSessionIndex, false), 140);
+      setTimeout(() => centerCard(defaultSessionIndex, false), 420);
+
+      if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(() => centerCard(activeSessionIndex, false));
+      }
+
+      window.addEventListener('load', () => centerCard(activeSessionIndex, false));
+
+      let resizeTimer;
+      window.addEventListener('resize', () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => centerCard(activeSessionIndex, false), 120);
+      });
     }
 
     function animateStatValue(el, target, duration = 1500) {
