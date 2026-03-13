@@ -414,8 +414,17 @@ import Layout from '../layouts/Layout.astro';
     function centerCard(index, smooth = true) {
       const card = sessionCards[index];
       if (!card || !sessionSlider) return;
-      const left = card.offsetLeft - (sessionSlider.clientWidth - card.clientWidth) / 2;
-      sessionSlider.scrollTo({ left, behavior: smooth ? 'smooth' : 'auto' });
+      const sliderRect = sessionSlider.getBoundingClientRect();
+      const cardRect = card.getBoundingClientRect();
+      const sliderCenterX = sliderRect.left + sliderRect.width / 2;
+      const cardCenterX = cardRect.left + cardRect.width / 2;
+      const delta = cardCenterX - sliderCenterX;
+      const targetLeft = sessionSlider.scrollLeft + delta;
+
+      sessionSlider.scrollTo({
+        left: Math.max(0, targetLeft),
+        behavior: smooth ? 'smooth' : 'auto'
+      });
     }
 
     function bindSessionEvents() {
