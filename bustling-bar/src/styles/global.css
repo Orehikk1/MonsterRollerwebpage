@@ -120,6 +120,14 @@ html.light .session-card .session-description {
   color: rgba(255, 255, 255, 0.7) !important;
 }
 
+/* Contact page hard contrast override in light mode */
+html.light .contact-page h1,
+html.light .contact-page h2,
+html.light .contact-page h3,
+html.light .contact-page label {
+  color: #111827 !important;
+}
+
 /* Force hero paragraph to be white in light mode */
 html.light div[class*="absolute"][class*="inset-0"] p {
   color: white !important;
@@ -998,6 +1006,24 @@ html.dark .session-selector-section {
 }
 
 @media (min-width: 900px) {
+  .session-shell {
+    max-width: 1400px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .session-slider {
+    gap: 1.5rem;
+    padding-left: calc(50% - 138px);
+    padding-right: calc(50% - 138px);
+  }
+
+  .session-card {
+    width: 276px;
+    height: 470px;
+    flex-basis: 276px;
+  }
+
   .session-stats {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
@@ -1005,79 +1031,92 @@ html.dark .session-selector-section {
 
 @media (min-width: 1280px) {
   .session-shell {
-    max-width: 1480px;
-    padding-left: 1.25rem;
-    padding-right: 1.25rem;
+    max-width: 1680px;
+    padding-left: 1.75rem;
+    padding-right: 1.75rem;
   }
 
   .session-title {
-    font-size: clamp(2.8rem, 4vw, 4.3rem);
+    font-size: clamp(3.1rem, 4.5vw, 4.9rem);
   }
 
   .session-subtitle {
-    font-size: 1.14rem;
-    margin-bottom: 2.4rem;
+    font-size: 1.18rem;
+    margin-bottom: 2.7rem;
   }
 
   .session-slider-controls {
-    margin-bottom: 1.15rem;
+    margin-bottom: 1.35rem;
   }
 
   .session-arrow {
-    width: 2.6rem;
-    height: 2.6rem;
-    font-size: 1.2rem;
+    width: 2.85rem;
+    height: 2.85rem;
+    font-size: 1.28rem;
   }
 
   .session-slider {
-    gap: 1.65rem;
-    padding-left: calc(50% - 142px);
-    padding-right: calc(50% - 142px);
+    gap: 2rem;
+    padding-left: calc(50% - 165px);
+    padding-right: calc(50% - 165px);
   }
 
   .session-card {
-    width: 284px;
-    height: 438px;
-    flex-basis: 284px;
-    padding: 1.12rem;
+    width: 330px;
+    height: 560px;
+    flex-basis: 330px;
+    padding: 1.18rem;
   }
 
   .session-name {
-    font-size: 20px;
+    font-size: 24px;
   }
 
   .session-duration {
-    font-size: 13px;
+    font-size: 14px;
   }
 
   .session-description {
-    font-size: 12px;
-    line-height: 1.35;
-    min-height: 2.7em;
+    font-size: 13px;
+    line-height: 1.42;
+    min-height: 2.9em;
   }
 
   .session-tags span {
-    font-size: 0.7rem;
-    padding: 0.4rem 0.55rem;
+    font-size: 0.76rem;
+    padding: 0.48rem 0.62rem;
   }
 
   .session-reserve-btn {
-    font-size: 0.86rem;
-    padding: 0.65rem 0.92rem;
+    font-size: 0.92rem;
+    padding: 0.78rem 1rem;
   }
 
   .session-stats {
-    margin-top: 1.8rem;
-    padding-top: 1.35rem;
-    gap: 1.2rem 1.6rem;
+    margin-top: 2.8rem;
+    padding-top: 2.2rem;
+    gap: 1.8rem 2.4rem;
+    align-items: stretch;
+  }
+
+  .session-stat-item {
+    min-height: 170px;
+    padding-top: 0.8rem;
+    padding-bottom: 0.8rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 
   .session-stat-value {
-    font-size: clamp(2.15rem, 3vw, 3.1rem);
+    font-size: clamp(2.45rem, 3vw, 3.35rem);
+    line-height: 1.08;
   }
 
   .session-stat-label {
+    margin-top: 0.9rem;
     font-size: 1rem;
+    line-height: 1.35;
   }
 }
 
@@ -1092,6 +1131,57 @@ html.dark .session-selector-section {
     width: 225px;
     height: 372px;
     flex-basis: 225px;
+  }
+
+  .session-card-head {
+    display: block;
+  }
+
+  .session-card-content {
+    padding-bottom: 2.7rem;
+  }
+
+  .session-name {
+    font-size: 19px;
+    line-height: 1.08;
+  }
+
+  .session-price {
+    position: absolute;
+    right: 0;
+    left: auto;
+    bottom: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24%;
+    min-width: 0;
+    margin: 0;
+    padding: 0.56rem 0.2rem;
+    font-size: 0.76rem;
+  }
+
+  .session-duration {
+    margin-top: 0.5rem;
+    margin-bottom: 0.55rem;
+    line-height: 1.2;
+  }
+
+  .session-description {
+    clear: none;
+  }
+
+  .session-reserve-btn {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 74%;
+    min-width: 0;
+    margin-top: 0;
+    padding: 0.56rem 0.7rem;
+    font-size: 0.74rem;
+    line-height: 1;
+    border-radius: 50px;
   }
 }
 

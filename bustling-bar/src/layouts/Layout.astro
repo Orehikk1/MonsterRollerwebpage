@@ -19,15 +19,13 @@ const { title = "Monster Roller Budapest" } = Astro.props;
     // Ensure light mode is the default before anything renders
     const html = document.documentElement;
     const saved = localStorage.getItem('theme');
+    const baseClasses = Array.from(html.classList).filter(cls => cls !== 'light' && cls !== 'dark');
     
     // Always start with light unless explicitly saved as dark
     if (saved !== 'dark') {
-      html.classList.add('light');
-      html.classList.remove('dark');
-      localStorage.setItem('theme', 'light');
+      html.className = [...baseClasses, 'light'].join(' ');
     } else {
-      html.classList.add('dark');
-      html.classList.remove('light');
+      html.className = [...baseClasses, 'dark'].join(' ');
     }
   </script>
 </head>
@@ -144,11 +142,14 @@ const { title = "Monster Roller Budapest" } = Astro.props;
       const COOKIE_KEY = 'mr_cookie_consent_v1';
       
       function setTheme(theme) {
-        document.documentElement.classList.remove('dark', 'light');
-        document.documentElement.classList.add(theme);
+        const root = document.documentElement;
+        const rootBase = Array.from(root.classList).filter(cls => cls !== 'light' && cls !== 'dark');
+        root.className = [...rootBase, theme].join(' ');
 
-        document.body.classList.remove('dark', 'light');
-        document.body.classList.add(theme);
+        // Keep body free of theme classes so `dark:*` utilities only follow html.
+        if (document.body) {
+          document.body.classList.remove('dark', 'light');
+        }
 
         if (toggle) {
           toggle.classList.toggle('is-night', theme === 'dark');
@@ -157,18 +158,16 @@ const { title = "Monster Roller Budapest" } = Astro.props;
         localStorage.setItem('theme', theme);
       }
 
-      const currentTheme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
-
-      document.body.classList.remove('dark', 'light');
-      document.body.classList.add(currentTheme);
-      if (toggle) {
-        toggle.classList.toggle('is-night', currentTheme === 'dark');
-      }
+      // Keep html/body strictly in sync to avoid mixed-theme rendering.
+      const savedTheme = localStorage.getItem('theme') === 'dark' ? 'dark' : 'light';
+      setTheme(savedTheme);
       
-      toggle.addEventListener('click', () => {
-        const isDark = document.documentElement.classList.contains('dark');
-        setTheme(isDark ? 'light' : 'dark');
-      });
+      if (toggle) {
+        toggle.addEventListener('click', () => {
+          const isDark = document.documentElement.classList.contains('dark');
+          setTheme(isDark ? 'light' : 'dark');
+        });
+      }
 
       // Hide header on scroll down, show on scroll up
       window.addEventListener('scroll', () => {
