@@ -32,8 +32,8 @@ const { title = "Monster Roller Budapest" } = Astro.props;
 <body class="min-h-screen flex flex-col">
   <!-- Header — кремовый по умолчанию -->
   <header id="site-header" class="fixed top-0 left-0 right-0 z-50 bg-[#fffaf0] dark:bg-[#0f1419] backdrop-blur-xl border-b border-orange-300/50 dark:border-[#3d4a7a] shadow-lg transition-transform duration-300 will-change-transform">
-    <nav class="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
-      <a href="/" class="text-2xl sm:text-3xl font-black text-orange-600 dark:text-orange-400 tracking-wider">
+    <nav class="max-w-7xl mx-auto px-3 sm:px-6 py-3 sm:py-4 flex items-center justify-between gap-2 sm:gap-4">
+      <a href="/" class="min-w-0 text-xl sm:text-3xl font-black text-orange-600 dark:text-orange-400 tracking-wider leading-none sm:leading-tight">
         MONSTER ROLLER
       </a>
 
@@ -46,9 +46,9 @@ const { title = "Monster Roller Budapest" } = Astro.props;
         <a href="/contact" class="hover:text-orange-500 dark:hover:text-orange-400 transition">Contact</a>
       </div>
 
-      <div class="flex items-center gap-4">
+      <div class="flex shrink-0 items-center gap-2 sm:gap-4">
         <a href="https://wa.me/36302584709?text=I%20want%20to%20book%20a%20Monster%20Roller%20now!"
-          class="bg-orange-500 hover:bg-orange-400 text-black dark:text-white font-bold whitespace-nowrap px-4 sm:px-7 md:px-8 py-2.5 sm:py-3 md:py-3.5 rounded-full shadow-lg text-sm sm:text-lg md:text-xl transition-all">
+          class="bg-orange-500 hover:bg-orange-400 text-black dark:text-white font-bold whitespace-nowrap px-3 sm:px-7 md:px-8 py-2 sm:py-3 md:py-3.5 rounded-full shadow-lg text-xs sm:text-lg md:text-xl transition-all">
           Book Now
         </a>
 
@@ -65,7 +65,7 @@ const { title = "Monster Roller Budapest" } = Astro.props;
           </span>
         </button>
 
-        <button id="mobile-menu-btn" class="lg:hidden text-orange-600 dark:text-orange-400 text-3xl">☰</button>
+        <button id="mobile-menu-btn" class="lg:hidden shrink-0 text-orange-600 dark:text-orange-400 text-3xl leading-none p-1" aria-label="Open menu">☰</button>
       </div>
     </nav>
 
@@ -219,6 +219,33 @@ const { title = "Monster Roller Budapest" } = Astro.props;
       }
     });
   </script>
+  <style>
+    @media (max-width: 380px) {
+      #site-header nav > a {
+        font-size: 0.92rem;
+        max-width: 9.4rem;
+      }
+
+      #site-header .day-night-toggle {
+        transform: scale(0.8);
+        transform-origin: center;
+      }
+
+      #site-header nav > div {
+        gap: 0.3rem;
+      }
+
+      #site-header nav a[href*="wa.me"] {
+        padding-left: 0.72rem;
+        padding-right: 0.72rem;
+        font-size: 0.78rem;
+      }
+
+      #mobile-menu-btn {
+        font-size: 1.65rem;
+      }
+    }
+  </style>
   <script defer src="/_vercel/insights/script.js"></script>
 </body>
 </html>
