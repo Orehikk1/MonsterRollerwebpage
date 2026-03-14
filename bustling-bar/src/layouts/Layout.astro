@@ -65,21 +65,41 @@ const { title = "Monster Roller Budapest" } = Astro.props;
           </span>
         </button>
 
-        <button id="mobile-menu-btn" class="lg:hidden shrink-0 text-orange-600 dark:text-orange-400 text-3xl leading-none p-1" aria-label="Open menu">☰</button>
+        <button id="mobile-menu-btn" class="mobile-menu-toggle lg:hidden shrink-0" aria-label="Open menu" type="button" aria-expanded="false" aria-controls="mobile-menu-overlay">
+          <span class="hamburger-lines" aria-hidden="true">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+          </span>
+        </button>
       </div>
     </nav>
+  </header>
 
-    <!-- Mobile Menu -->
-    <div id="mobile-menu" class="hidden lg:hidden absolute top-full left-0 right-0 bg-[#fffaf0] dark:bg-[#0f1419] border-b border-orange-300/50 dark:border-[#3d4a7a] shadow-lg py-4">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col gap-4">
-        <a href="/" class="text-black dark:text-white font-semibold hover:text-orange-600 dark:hover:text-orange-400 transition py-2">Home</a>
-        <a href="/#book-your-ride" class="text-black dark:text-white font-semibold hover:text-orange-600 dark:hover:text-orange-400 transition py-2">Rent</a>
-        <a href="/tours" class="text-black dark:text-white font-semibold hover:text-orange-600 dark:hover:text-orange-400 transition py-2">Tours</a>
-        <a href="/about" class="text-black dark:text-white font-semibold hover:text-orange-600 dark:hover:text-orange-400 transition py-2">About</a>
-        <a href="/contact" class="text-black dark:text-white font-semibold hover:text-orange-600 dark:hover:text-orange-400 transition py-2">Contact</a>
+  <div id="mobile-menu-overlay" class="mobile-menu-overlay" aria-hidden="true">
+    <div class="mobile-menu-inner">
+      <button id="mobile-menu-close" class="mobile-menu-close" type="button" aria-label="Close menu">
+        <span></span>
+        <span></span>
+      </button>
+
+      <div class="mobile-menu-links" aria-label="Mobile navigation">
+        <a href="/" class="mobile-menu-link" style="--delay: 0.1s;"><span class="mobile-menu-index">01</span><span>Home</span></a>
+        <a href="/#book-your-ride" class="mobile-menu-link" style="--delay: 0.15s;"><span class="mobile-menu-index">02</span><span>Rent</span></a>
+        <a href="/tours" class="mobile-menu-link" style="--delay: 0.2s;"><span class="mobile-menu-index">03</span><span>Tours</span></a>
+        <a href="/about" class="mobile-menu-link" style="--delay: 0.25s;"><span class="mobile-menu-index">04</span><span>About</span></a>
+        <a href="/contact" class="mobile-menu-link" style="--delay: 0.3s;"><span class="mobile-menu-index">05</span><span>Contact</span></a>
+      </div>
+
+      <div class="mobile-menu-separator"></div>
+
+      <div class="mobile-menu-bottom">
+        <p>+36 30 258 4709</p>
+        <p>bpsegway@gmail.com</p>
+        <a href="https://wa.me/36302584709?text=I%20want%20to%20book%20a%20Monster%20Roller%20now!">Book Now</a>
       </div>
     </div>
-  </header>
+  </div>
 
   <main class="flex-1 pt-20 sm:pt-24">
     <slot />
@@ -118,19 +138,76 @@ const { title = "Monster Roller Budapest" } = Astro.props;
     document.addEventListener('DOMContentLoaded', () => {
       // Mobile Menu Toggle
       const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-      const mobileMenu = document.getElementById('mobile-menu');
-      
-      mobileMenuBtn.addEventListener('click', () => {
-        mobileMenu.classList.toggle('hidden');
-      });
+      const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+      const mobileMenuClose = document.getElementById('mobile-menu-close');
+      const mobileMenuLinks = mobileMenuOverlay ? mobileMenuOverlay.querySelectorAll('.mobile-menu-link') : [];
+      let closeMenuTimer;
 
-      // Close menu when a link is clicked
-      const mobileMenuLinks = mobileMenu.querySelectorAll('a');
-      mobileMenuLinks.forEach(link => {
-        link.addEventListener('click', () => {
-          mobileMenu.classList.add('hidden');
+      function openMobileMenu() {
+        if (!mobileMenuBtn || !mobileMenuOverlay) return;
+        clearTimeout(closeMenuTimer);
+        document.body.classList.add('menu-open');
+        mobileMenuBtn.classList.add('is-open');
+        mobileMenuBtn.setAttribute('aria-expanded', 'true');
+        mobileMenuOverlay.classList.remove('is-closing');
+        mobileMenuOverlay.classList.add('is-open');
+        mobileMenuOverlay.setAttribute('aria-hidden', 'false');
+      }
+
+      function closeMobileMenu() {
+        if (!mobileMenuBtn || !mobileMenuOverlay) return;
+        mobileMenuBtn.classList.remove('is-open');
+        mobileMenuBtn.setAttribute('aria-expanded', 'false');
+        document.body.classList.remove('menu-open');
+        mobileMenuOverlay.classList.remove('is-open');
+        mobileMenuOverlay.classList.add('is-closing');
+        clearTimeout(closeMenuTimer);
+        closeMenuTimer = setTimeout(() => {
+          mobileMenuOverlay.classList.remove('is-closing');
+          mobileMenuOverlay.setAttribute('aria-hidden', 'true');
+        }, 360);
+      }
+
+      if (mobileMenuBtn && mobileMenuOverlay) {
+        mobileMenuBtn.addEventListener('click', () => {
+          const isOpen = mobileMenuOverlay.classList.contains('is-open');
+          if (isOpen) {
+            closeMobileMenu();
+          } else {
+            openMobileMenu();
+          }
         });
-      });
+
+        mobileMenuLinks.forEach((link) => {
+          link.addEventListener('click', () => {
+            closeMobileMenu();
+          });
+        });
+
+        if (mobileMenuClose) {
+          mobileMenuClose.addEventListener('click', () => {
+            closeMobileMenu();
+          });
+        }
+
+        mobileMenuOverlay.addEventListener('click', (event) => {
+          if (event.target === mobileMenuOverlay) {
+            closeMobileMenu();
+          }
+        });
+
+        document.addEventListener('keydown', (event) => {
+          if (event.key === 'Escape' && mobileMenuOverlay.classList.contains('is-open')) {
+            closeMobileMenu();
+          }
+        });
+
+        window.addEventListener('resize', () => {
+          if (window.innerWidth >= 1024 && mobileMenuOverlay.classList.contains('is-open')) {
+            closeMobileMenu();
+          }
+        });
+      }
 
       // Theme Toggle
       const toggle = document.getElementById('theme-toggle');
@@ -220,6 +297,197 @@ const { title = "Monster Roller Budapest" } = Astro.props;
     });
   </script>
   <style>
+    body.menu-open {
+      overflow: hidden;
+    }
+
+    .mobile-menu-toggle {
+      width: 34px;
+      height: 34px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 0;
+      background: transparent;
+      padding: 0;
+      position: relative;
+      z-index: 10001;
+    }
+
+    .hamburger-lines {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .hamburger-line {
+      width: 22px;
+      height: 2px;
+      border-radius: 2px;
+      background: #ffffff;
+      transform-origin: center;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    .mobile-menu-toggle.is-open .hamburger-line:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    .mobile-menu-toggle.is-open .hamburger-line:nth-child(2) {
+      opacity: 0;
+    }
+
+    .mobile-menu-toggle.is-open .hamburger-line:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    .mobile-menu-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      pointer-events: none;
+      transform: translateX(100%);
+      transition: transform 0.4s cubic-bezier(0.76, 0, 0.24, 1);
+      background-image:
+        linear-gradient(rgba(0, 0, 0, 0.97), rgba(0, 0, 0, 0.97)),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140' viewBox='0 0 140 140'%3E%3Ccircle cx='14' cy='18' r='1' fill='white' fill-opacity='0.02'/%3E%3Ccircle cx='64' cy='40' r='1' fill='white' fill-opacity='0.02'/%3E%3Ccircle cx='112' cy='24' r='1' fill='white' fill-opacity='0.02'/%3E%3Ccircle cx='26' cy='82' r='1' fill='white' fill-opacity='0.02'/%3E%3Ccircle cx='92' cy='96' r='1' fill='white' fill-opacity='0.02'/%3E%3Ccircle cx='128' cy='122' r='1' fill='white' fill-opacity='0.02'/%3E%3C/svg%3E");
+      background-repeat: no-repeat, repeat;
+    }
+
+    .mobile-menu-overlay.is-open {
+      transform: translateX(0);
+      pointer-events: auto;
+    }
+
+    .mobile-menu-overlay.is-closing {
+      transform: translateX(100%);
+      pointer-events: none;
+      transition-duration: 0.35s;
+    }
+
+    .mobile-menu-inner {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 80px 40px 50px;
+      position: relative;
+    }
+
+    .mobile-menu-close {
+      position: absolute;
+      top: 24px;
+      right: 24px;
+      width: 32px;
+      height: 32px;
+      border: 0;
+      background: transparent;
+      padding: 0;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2;
+    }
+
+    .mobile-menu-close span {
+      position: absolute;
+      width: 22px;
+      height: 2px;
+      border-radius: 2px;
+      background: #ffffff;
+    }
+
+    .mobile-menu-close span:first-child {
+      transform: rotate(45deg);
+    }
+
+    .mobile-menu-close span:last-child {
+      transform: rotate(-45deg);
+    }
+
+    .mobile-menu-links {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .mobile-menu-link {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 0.65rem;
+      color: #ffffff;
+      font-family: 'Syne', sans-serif;
+      font-size: 48px;
+      font-weight: 800;
+      line-height: 1;
+      text-decoration: none;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: color 0.2s ease, transform 0.2s ease, opacity 0.26s ease;
+      transition-delay: 0s;
+    }
+
+    .mobile-menu-link:hover {
+      color: #f97316;
+      transform: translateX(8px);
+    }
+
+    .mobile-menu-overlay.is-open .mobile-menu-link {
+      opacity: 1;
+      transform: translateY(0);
+      transition-delay: var(--delay, 0s);
+    }
+
+    .mobile-menu-overlay.is-closing .mobile-menu-link {
+      opacity: 0;
+      transform: translateY(10px);
+      transition-delay: 0s;
+      transition-duration: 0.12s;
+    }
+
+    .mobile-menu-index {
+      color: #f97316;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      font-weight: 500;
+      min-width: 1.8rem;
+      transform: translateY(-0.3em);
+    }
+
+    .mobile-menu-separator {
+      width: 100%;
+      height: 1px;
+      background: rgba(255, 255, 255, 0.08);
+      margin: 1.2rem 0;
+    }
+
+    .mobile-menu-bottom p {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.56);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      line-height: 1.65;
+    }
+
+    .mobile-menu-bottom a {
+      display: inline-block;
+      margin-top: 16px;
+      border-radius: 50px;
+      background: #f97316;
+      color: #000000;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 700;
+      text-decoration: none;
+      padding: 12px 28px;
+    }
+
+    @media (min-width: 1024px) {
+      .mobile-menu-overlay {
+        display: none;
+      }
+    }
+
     @media (max-width: 380px) {
       #site-header nav > a {
         font-size: 0.92rem;
@@ -243,6 +511,19 @@ const { title = "Monster Roller Budapest" } = Astro.props;
 
       #mobile-menu-btn {
         font-size: 1.65rem;
+      }
+
+      .mobile-menu-inner {
+        padding: 74px 24px 40px;
+      }
+
+      .mobile-menu-close {
+        top: 18px;
+        right: 18px;
+      }
+
+      .mobile-menu-link {
+        font-size: 40px;
       }
     }
   </style>
