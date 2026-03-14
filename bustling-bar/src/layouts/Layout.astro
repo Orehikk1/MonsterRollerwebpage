@@ -324,9 +324,13 @@ const { title = "Monster Roller Budapest" } = Astro.props;
       width: 22px;
       height: 2px;
       border-radius: 2px;
-      background: #ffffff;
+      background: #0f172a;
       transform-origin: center;
       transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    html.dark .hamburger-line {
+      background: #ffffff;
     }
 
     .mobile-menu-toggle.is-open .hamburger-line:nth-child(1) {
@@ -464,10 +468,16 @@ const { title = "Monster Roller Budapest" } = Astro.props;
 
     .mobile-menu-bottom p {
       margin: 0;
-      color: rgba(255, 255, 255, 0.56);
+      color: #ffffff !important;
+      opacity: 1;
+      text-shadow: 0 1px 8px rgba(0, 0, 0, 0.55);
       font-family: 'DM Sans', sans-serif;
       font-size: 13px;
       line-height: 1.65;
+    }
+
+    html.light .mobile-menu-bottom p {
+      color: #ffffff !important;
     }
 
     .mobile-menu-bottom a {
@@ -483,6 +493,10 @@ const { title = "Monster Roller Budapest" } = Astro.props;
     }
 
     @media (min-width: 1024px) {
+      .mobile-menu-toggle {
+        display: none !important;
+      }
+
       .mobile-menu-overlay {
         display: none;
       }
@@ -514,7 +528,7 @@ const { title = "Monster Roller Budapest" } = Astro.props;
       }
 
       .mobile-menu-inner {
-        padding: 74px 24px 40px;
+        padding: 74px 18px 36px;
       }
 
       .mobile-menu-close {
@@ -523,7 +537,20 @@ const { title = "Monster Roller Budapest" } = Astro.props;
       }
 
       .mobile-menu-link {
-        font-size: 40px;
+        font-size: 32px;
+        gap: 0.5rem;
+        line-height: 1.02;
+      }
+
+      .mobile-menu-index {
+        font-size: 11px;
+        min-width: 1.5rem;
+      }
+    }
+
+    @media (max-width: 340px) {
+      .mobile-menu-link {
+        font-size: 28px;
       }
     }
   </style>
