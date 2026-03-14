@@ -557,10 +557,45 @@ import Layout from '../layouts/Layout.astro';
       const statsRoot = document.getElementById('sessionStats');
       if (!statsRoot) return;
       const values = Array.from(statsRoot.querySelectorAll('[data-count]'));
-      values.forEach((value) => {
-        const target = Number(value.getAttribute('data-count'));
-        animateStatValue(value, target, 6000);
-      });
+
+      let hasAnimated = false;
+      const runAnimation = () => {
+        if (hasAnimated) return;
+        hasAnimated = true;
+        values.forEach((value) => {
+          const target = Number(value.getAttribute('data-count'));
+          animateStatValue(value, target, 6000);
+        });
+      };
+
+      if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              runAnimation();
+              observer.disconnect();
+            }
+          });
+        }, {
+          threshold: 0.35,
+          rootMargin: '0px 0px -8% 0px'
+        });
+
+        observer.observe(statsRoot);
+      } else {
+        // Fallback for old browsers without IntersectionObserver support.
+        const onScroll = () => {
+          const rect = statsRoot.getBoundingClientRect();
+          const triggerPoint = window.innerHeight * 0.82;
+          if (rect.top <= triggerPoint && rect.bottom >= 0) {
+            runAnimation();
+            window.removeEventListener('scroll', onScroll);
+          }
+        };
+
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+      }
     }
 
     bindSessionEvents();
