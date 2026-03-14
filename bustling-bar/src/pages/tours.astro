@@ -1,0 +1,654 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Tours — Monster Roller Budapest">
+  <section class="tours-page">
+    <div class="tours-shell">
+      <section class="tours-hero">
+        <div class="tours-hero-copy">
+          <p class="tours-eyebrow">Our Tours</p>
+          <h1 class="tours-title">
+            <span>Pick Your</span>
+            <span>Adventure</span>
+          </h1>
+          <p class="tours-lead">
+            Every route tells a different story — choose yours and ride through Budapest like never before.
+          </p>
+        </div>
+        <div class="tours-hero-number" aria-hidden="true">05</div>
+      </section>
+
+      <section class="tours-filters" aria-label="Tour duration filters">
+        <button class="tour-filter is-active" type="button" data-filter="all">All Tours</button>
+        <button class="tour-filter" type="button" data-filter="under1h">Under 1h</button>
+        <button class="tour-filter" type="button" data-filter="1to2h">1–2h</button>
+        <button class="tour-filter" type="button" data-filter="3hplus">3h+</button>
+      </section>
+
+      <section class="tours-grid" id="toursGrid" aria-label="Available tours">
+        <article class="tour-card" data-duration="under1h">
+          <div class="tour-card-media grad-city-sprint">
+            <span class="tour-price">€35</span>
+          </div>
+          <div class="tour-card-body">
+            <h3 class="tour-name">Citadella Tour</h3>
+            <p class="tour-subtitle">60 Min Tour</p>
+            <p class="tour-description">Start your adventure with a thrilling climb to the Citadel hill. Ride across Liberty Bridge and up through Buda's hidden streets to reach one of the city's most breathtaking viewpoints. You'll pass the Pauline Monastery ruins, the iconic Statue of Liberty, and the peaceful Philosophers' Garden — all in just one hour. Perfect for first-timers or anyone short on time who still wants the full Budapest magic.</p>
+            <div class="tour-tags">
+              <span>Quick Ride</span>
+              <span>10 Photospots</span>
+              <span>Citadel Views</span>
+              <span>Solo Friendly</span>
+              <span>60 Min</span>
+            </div>
+            <a class="tour-reserve" href="https://wa.me/36302584709?text=I%20want%20to%20book%20the%20Citadella%20Tour%20tour" target="_blank" rel="noopener noreferrer">Reserve</a>
+          </div>
+        </article>
+
+        <article class="tour-card" data-duration="1to2h">
+          <div class="tour-card-media grad-blue-horizon">
+            <span class="tour-popular">Most Popular</span>
+            <span class="tour-price">€49</span>
+          </div>
+          <div class="tour-card-body">
+            <h3 class="tour-name">Fisherman's Bastion Tour</h3>
+            <p class="tour-subtitle">90 Min Tour</p>
+            <p class="tour-description">The classic Budapest experience on two electric wheels. This route takes you across the famous Chain Bridge, up to the fairy-tale towers of Fisherman's Bastion, and along the historic walls of Buda Castle. You'll stop at Elizabeth Bridge for panoramic shots over the Danube and ride through the charming streets of the Castle District. The most loved route by our guests — and it's easy to see why.</p>
+            <div class="tour-tags">
+              <span>Most Popular</span>
+              <span>20 Photospots</span>
+              <span>Chain Bridge</span>
+              <span>Buda Castle</span>
+              <span>Danube Views</span>
+            </div>
+            <a class="tour-reserve" href="https://wa.me/36302584709?text=I%20want%20to%20book%20the%20Fisherman%27s%20Bastion%20Tour%20tour" target="_blank" rel="noopener noreferrer">Reserve</a>
+          </div>
+        </article>
+
+        <article class="tour-card" data-duration="1to2h">
+          <div class="tour-card-media grad-night-pulse">
+            <span class="tour-price">€59</span>
+          </div>
+          <div class="tour-card-body">
+            <h3 class="tour-name">Buda + Pest Tour</h3>
+            <p class="tour-subtitle">2 Hour Tour</p>
+            <p class="tour-description">The best way to see both sides of Budapest in one ride. Cross the river, explore the grand boulevards of Pest and the medieval streets of Buda. You'll pass St. Stephen's Basilica, the magnificent Parliament building, the Iron Shoes memorial on the riverbank, Fisherman's Bastion, and Buda Castle — all with plenty of photo stops along the way. Our guides speak 7 languages and know every hidden angle worth capturing.</p>
+            <div class="tour-tags">
+              <span>Best Value</span>
+              <span>25 Photospots</span>
+              <span>Parliament</span>
+              <span>Iron Shoes</span>
+              <span>Basilica</span>
+              <span>Both Sides</span>
+            </div>
+            <a class="tour-reserve" href="https://wa.me/36302584709?text=I%20want%20to%20book%20the%20Buda%20%2B%20Pest%20Tour%20tour" target="_blank" rel="noopener noreferrer">Reserve</a>
+          </div>
+        </article>
+
+        <article class="tour-card" data-duration="3hplus">
+          <div class="tour-card-media grad-golden-drift">
+            <span class="tour-price">€69</span>
+          </div>
+          <div class="tour-card-body">
+            <h3 class="tour-name">Grand Tour</h3>
+            <p class="tour-subtitle">3 Hour Tour</p>
+            <p class="tour-description">The ultimate Budapest adventure for those who want it all. This extended route covers the full city — from the grand Parliament and the iconic Chain Bridge to the tranquil shores of Margaret Island with its Musical Fountain and Japanese Garden. You'll also pass through the Jewish Quarter, along the Danube promenade, and up to Fisherman's Bastion for a sunset view. 30 carefully chosen photo stops included. Best shared with a group.</p>
+            <div class="tour-tags">
+              <span>Group Pick</span>
+              <span>30 Photospots</span>
+              <span>Margaret Island</span>
+              <span>Jewish Quarter</span>
+              <span>Full City</span>
+              <span>Sunset Views</span>
+            </div>
+            <a class="tour-reserve" href="https://wa.me/36302584709?text=I%20want%20to%20book%20the%20Grand%20Tour%20tour" target="_blank" rel="noopener noreferrer">Reserve</a>
+          </div>
+        </article>
+
+        <article class="tour-card" data-duration="1to2h">
+          <div class="tour-card-media grad-sunset-blaze">
+            <span class="tour-price">€49</span>
+          </div>
+          <div class="tour-card-body">
+            <h3 class="tour-name">Island Tour</h3>
+            <p class="tour-subtitle">90 Min Tour</p>
+            <p class="tour-description">Escape the city buzz without leaving Budapest. Margaret Island is a hidden gem sitting right in the middle of the Danube — car-free, green, and full of surprises. Ride past the ruins of a medieval monastery, through the Japanese Garden, around the Musical Fountain, and along the shaded promenades that locals love. A peaceful and unique route that most tourists never discover. Perfect for couples and nature lovers.</p>
+            <div class="tour-tags">
+              <span>Scenic Route</span>
+              <span>20 Photospots</span>
+              <span>Margaret Island</span>
+              <span>Car Free</span>
+              <span>Couples</span>
+              <span>Hidden Gem</span>
+            </div>
+            <a class="tour-reserve" href="https://wa.me/36302584709?text=I%20want%20to%20book%20the%20Island%20Tour%20tour" target="_blank" rel="noopener noreferrer">Reserve</a>
+          </div>
+        </article>
+
+        <article class="tour-card tour-card-rent" data-always-visible="true">
+          <div class="tour-card-media grad-rent-flow"></div>
+          <div class="tour-card-body">
+            <h3 class="tour-name">Freestyle Rent</h3>
+            <p class="tour-subtitle">Ride Your Own Route</p>
+            <p class="tour-duration">Flexible rental options</p>
+            <p class="tour-description">Not looking for a guided tour? Rent a Monster Roller and explore Budapest at your own pace, on your own schedule.</p>
+            <div class="tour-tags">
+              <span>Self Guided</span>
+              <span>Book Fast</span>
+            </div>
+            <a class="tour-reserve" href="/#book-your-ride">Rent a Bike</a>
+          </div>
+        </article>
+      </section>
+
+      <section class="tours-cta">
+        <div>
+          <h2>Not sure which tour to pick?</h2>
+          <p>Message us on WhatsApp and we'll help you choose the perfect route.</p>
+        </div>
+        <a href="https://wa.me/36302584709" target="_blank" rel="noopener noreferrer">Chat on WhatsApp -></a>
+      </section>
+    </div>
+  </section>
+
+  <script is:inline>
+    document.addEventListener('DOMContentLoaded', () => {
+      const filters = Array.from(document.querySelectorAll('.tour-filter'));
+      const cards = Array.from(document.querySelectorAll('.tour-card'));
+      const fadeMs = 220;
+
+      function hideCard(card) {
+        if (card.style.display === 'none') return;
+        card.classList.add('is-fading');
+        window.setTimeout(() => {
+          if (card.classList.contains('is-fading')) {
+            card.style.display = 'none';
+          }
+        }, fadeMs);
+      }
+
+      function showCard(card) {
+        if (card.style.display !== 'block') {
+          card.style.display = 'block';
+        }
+        requestAnimationFrame(() => {
+          card.classList.remove('is-fading');
+        });
+      }
+
+      function applyFilter(filterValue) {
+        cards.forEach((card) => {
+          const duration = card.dataset.duration;
+          const alwaysVisible = card.dataset.alwaysVisible === 'true';
+          const shouldShow = alwaysVisible || filterValue === 'all' || duration === filterValue;
+          if (shouldShow) {
+            showCard(card);
+          } else {
+            hideCard(card);
+          }
+        });
+      }
+
+      filters.forEach((button) => {
+        button.addEventListener('click', () => {
+          filters.forEach((btn) => btn.classList.remove('is-active'));
+          button.classList.add('is-active');
+          applyFilter(button.dataset.filter || 'all');
+        });
+      });
+
+      applyFilter('all');
+    });
+  </script>
+
+  <style>
+    .tours-page {
+      background: #0d0d0d;
+      padding: 100px 0 80px;
+      min-height: 100vh;
+    }
+
+    :global(html.light) .tours-page {
+      background: #f7f3eb;
+    }
+
+    .tours-shell {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    .tours-hero {
+      position: relative;
+      padding-bottom: 60px;
+      min-height: 360px;
+      display: flex;
+      align-items: flex-end;
+    }
+
+    .tours-hero-copy {
+      position: relative;
+      z-index: 2;
+      max-width: 580px;
+      min-width: 0;
+    }
+
+    .tours-eyebrow {
+      color: #f97316;
+      font-size: 12px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin: 0 0 0.9rem;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 500;
+    }
+
+    .tours-title {
+      margin: 0;
+      color: #ffffff;
+      font-size: 80px;
+      line-height: 0.95;
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      max-width: 100%;
+      overflow-wrap: anywhere;
+    }
+
+    :global(html.light) .tours-title {
+      color: #111827;
+    }
+
+    .tours-title span {
+      display: block;
+    }
+
+    .tours-lead {
+      margin: 1.15rem 0 0;
+      max-width: 500px;
+      color: rgba(255, 255, 255, 0.62);
+      font-size: 1rem;
+      line-height: 1.6;
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    :global(html.light) .tours-lead {
+      color: rgba(17, 24, 39, 0.72);
+    }
+
+    .tours-hero-number {
+      position: absolute;
+      right: 0;
+      top: 0;
+      color: #ffffff;
+      opacity: 0.04;
+      font-size: 200px;
+      line-height: 0.85;
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      user-select: none;
+      pointer-events: none;
+    }
+
+    :global(html.light) .tours-hero-number {
+      color: #000000;
+      opacity: 0.05;
+    }
+
+    .tours-filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 28px;
+    }
+
+    .tour-filter {
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 50px;
+      background: transparent;
+      color: #ffffff;
+      font-size: 13px;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 500;
+      padding: 0.55rem 1rem;
+      transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+    }
+
+    :global(html.light) .tour-filter {
+      border-color: rgba(17, 24, 39, 0.18);
+      color: #111827;
+    }
+
+    .tour-filter.is-active {
+      background: #f97316;
+      color: #000000;
+      border-color: #f97316;
+    }
+
+    .tours-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .tour-card {
+      background: #111111;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      background-clip: padding-box;
+      -webkit-mask-image: -webkit-radial-gradient(white, black);
+      backface-visibility: hidden;
+      transition: transform 0.3s ease, border-color 0.3s ease, opacity 0.22s ease;
+      opacity: 1;
+      display: block;
+    }
+
+    :global(html.light) .tour-card {
+      background: #ffffff;
+      border-color: rgba(17, 24, 39, 0.12);
+    }
+
+    .tour-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(249, 115, 22, 0.4);
+    }
+
+    .tour-card.is-fading {
+      opacity: 0;
+    }
+
+    .tour-card-media {
+      height: 200px;
+      position: relative;
+      padding: 0.9rem;
+    }
+
+    .grad-city-sprint {
+      background: linear-gradient(160deg, #08342f 0%, #1d9e75 100%);
+    }
+
+    .grad-blue-horizon {
+      background: linear-gradient(160deg, #0d2646 0%, #185fa5 100%);
+    }
+
+    .grad-night-pulse {
+      background: linear-gradient(160deg, #2b1f40 0%, #7f77dd 100%);
+    }
+
+    .grad-golden-drift {
+      background: linear-gradient(160deg, #3f2b12 0%, #ba7517 100%);
+    }
+
+    .grad-sunset-blaze {
+      background: linear-gradient(160deg, #4a2318 0%, #d85a30 100%);
+    }
+
+    .grad-rent-flow {
+      background: linear-gradient(160deg, #1f2937 0%, #4b5563 100%);
+    }
+
+    .tour-price,
+    .tour-popular {
+      position: absolute;
+      border-radius: 50px;
+      padding: 6px 14px;
+      font-size: 14px;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .tour-price {
+      top: 0.9rem;
+      right: 0.9rem;
+      background: #f97316;
+      color: #000000;
+    }
+
+    .tour-popular {
+      top: 0.9rem;
+      left: 0.9rem;
+      background: #16a34a;
+      color: #ffffff;
+      font-size: 11px;
+      padding: 6px 10px;
+      letter-spacing: 0.01em;
+    }
+
+    .tour-card-body {
+      padding: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      min-height: 300px;
+    }
+
+    .tour-name {
+      margin: 0;
+      color: #ffffff;
+      font-size: 20px;
+      line-height: 1.15;
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+    }
+
+    :global(html.light) .tour-name {
+      color: #111827;
+    }
+
+    .tour-subtitle {
+      margin: 0.35rem 0 0;
+      color: #f97316;
+      font-size: 13px;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 500;
+    }
+
+    .tour-duration {
+      margin: 0.45rem 0 0;
+      color: rgba(255, 255, 255, 0.45);
+      font-size: 12px;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 400;
+    }
+
+    :global(html.light) .tour-duration {
+      color: rgba(17, 24, 39, 0.56);
+    }
+
+    .tour-description {
+      margin: 0.7rem 0 0;
+      color: rgba(255, 255, 255, 0.65);
+      font-size: 13px;
+      line-height: 1.6;
+      font-family: 'DM Sans', sans-serif;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      min-height: 4.7em;
+    }
+
+    :global(html.light) .tour-description {
+      color: rgba(17, 24, 39, 0.72);
+    }
+
+    .tour-tags {
+      display: flex;
+      gap: 8px;
+      margin-top: 0.85rem;
+      flex-wrap: wrap;
+    }
+
+    .tour-tags span {
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 20px;
+      background: transparent;
+      color: #ffffff;
+      font-size: 11px;
+      line-height: 1;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 500;
+      padding: 4px 10px;
+    }
+
+    :global(html.light) .tour-tags span {
+      border-color: rgba(17, 24, 39, 0.2);
+      color: #111827;
+    }
+
+    .tour-reserve {
+      margin-top: auto;
+      width: 100%;
+      text-align: center;
+      background: #ffffff;
+      color: #000000;
+      border-radius: 50px;
+      padding: 11px;
+      font-size: 14px;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 700;
+      text-decoration: none;
+      transition: background-color 0.2s ease, color 0.2s ease;
+    }
+
+    :global(html.light) .tour-reserve {
+      background: #111827;
+      color: #ffffff;
+    }
+
+    .tour-reserve:hover {
+      background: #f97316;
+      color: #000000;
+    }
+
+    .tours-cta {
+      margin-top: 60px;
+      background: #111111;
+      border-radius: 16px;
+      border-left: 4px solid #f97316;
+      padding: 2.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1.2rem;
+    }
+
+    :global(html.light) .tours-cta {
+      background: #ffffff;
+      border: 1px solid rgba(17, 24, 39, 0.12);
+      border-left: 4px solid #f97316;
+    }
+
+    .tours-cta h2 {
+      margin: 0;
+      color: #ffffff;
+      font-family: 'Syne', sans-serif;
+      font-size: 1.9rem;
+      line-height: 1.08;
+    }
+
+    :global(html.light) .tours-cta h2 {
+      color: #111827;
+    }
+
+    .tours-cta p {
+      margin: 0.55rem 0 0;
+      color: rgba(255, 255, 255, 0.62);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+
+    :global(html.light) .tours-cta p {
+      color: rgba(17, 24, 39, 0.72);
+    }
+
+    .tours-cta a {
+      white-space: nowrap;
+      border-radius: 999px;
+      background: #f97316;
+      color: #000000;
+      text-decoration: none;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      padding: 0.8rem 1.3rem;
+      transition: background-color 0.2s ease;
+    }
+
+    .tours-cta a:hover {
+      background: #ea620c;
+    }
+
+    @media (max-width: 1024px) {
+      .tours-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .tours-title {
+        font-size: 66px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .tours-page {
+        width: 100%;
+        overflow-x: hidden;
+      }
+
+      .tours-shell {
+        width: 100%;
+      }
+
+      .tours-hero {
+        min-height: 0;
+        padding-bottom: 40px;
+      }
+
+      .tours-title {
+        font-size: clamp(2.15rem, 12vw, 3rem);
+        line-height: 0.96;
+      }
+
+      .tours-hero-number {
+        font-size: 130px;
+        top: 12px;
+      }
+
+      .tours-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .tours-cta {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    @media (max-width: 430px) {
+      .tours-shell {
+        padding-left: 0.78rem;
+        padding-right: 0.78rem;
+      }
+
+      .tours-title {
+        font-size: clamp(2rem, 11.2vw, 2.6rem);
+        line-height: 0.98;
+      }
+
+      .tours-lead {
+        font-size: 0.96rem;
+      }
+    }
+
+    @media (hover: none) and (pointer: coarse) {
+      .tour-card:hover {
+        transform: none;
+      }
+    }
+  </style>
+</Layout>
