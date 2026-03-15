@@ -1180,40 +1180,6 @@ html.dark .session-selector-section {
   transform: scale(1.22);
 }
 
-.session-stats {
-  margin-top: 1.45rem;
-  border-top: 1px solid var(--session-border);
-  padding-top: 1.15rem;
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1rem 1.2rem;
-}
-
-.session-stat-item {
-  text-align: center;
-}
-
-.session-stat-value {
-  font-family: 'Syne', sans-serif;
-  font-weight: 800;
-  font-size: clamp(1.75rem, 3.8vw, 2.6rem);
-  color: var(--session-text);
-  line-height: 1.05;
-}
-
-.session-stat-value em {
-  color: var(--session-accent);
-  font-style: normal;
-}
-
-.session-stat-label {
-  margin-top: 0.28rem;
-  font-family: 'DM Sans', sans-serif;
-  font-size: 0.9rem;
-  font-weight: 400;
-  color: var(--session-muted);
-}
-
 @media (min-width: 900px) {
   .session-shell {
     max-width: 1400px;
@@ -1231,10 +1197,6 @@ html.dark .session-selector-section {
     width: 276px;
     height: 470px;
     flex-basis: 276px;
-  }
-
-  .session-stats {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 }
 
@@ -1299,33 +1261,6 @@ html.dark .session-selector-section {
   .session-reserve-btn {
     font-size: 0.92rem;
     padding: 0.78rem 1rem;
-  }
-
-  .session-stats {
-    margin-top: 2.8rem;
-    padding-top: 2.2rem;
-    gap: 1.8rem 2.4rem;
-    align-items: stretch;
-  }
-
-  .session-stat-item {
-    min-height: 170px;
-    padding-top: 0.8rem;
-    padding-bottom: 0.8rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-
-  .session-stat-value {
-    font-size: clamp(2.45rem, 3vw, 3.35rem);
-    line-height: 1.08;
-  }
-
-  .session-stat-label {
-    margin-top: 0.9rem;
-    font-size: 1rem;
-    line-height: 1.35;
   }
 }
 

@@ -573,27 +573,600 @@ import Layout from '../layouts/Layout.astro';
         <button class="session-dot" type="button" aria-label="Go to session 4" data-index="3"></button>
         <button class="session-dot" type="button" aria-label="Go to session 5" data-index="4"></button>
       </div>
+    </div>
+  </section>
 
-      <div class="session-stats" id="sessionStats">
-        <div class="session-stat-item">
-          <p class="session-stat-value"><span data-count="1000">0</span><em>+</em></p>
-          <p class="session-stat-label">happy customers</p>
+  <!-- First Time + FAQ -->
+  <section class="ftf-faq-wrap">
+    <div class="ftf-trust-shell">
+      <div class="ftf-trust-inner">
+        <div class="ftf-trust-grid">
+          <div class="ftf-trust-copy">
+            <p class="ftf-mini">First Time?</p>
+            <h2 class="ftf-title">You'll be <span class="ftf-accent">riding</span> like a pro in <span class="ftf-accent">15 minutes.</span></h2>
+            <p class="ftf-lead">
+              Never ridden a Monster Roller before? <span class="ftf-accent-soft">Perfect.</span> Every session starts with a hands-on training right at our base in the heart of Budapest. Our guides won't let you roll an inch until you feel totally confident. Most people are comfortable within <span class="ftf-accent-soft">10 minutes</span> - and absolutely loving it within <span class="ftf-accent-soft">15.</span>
+            </p>
+            <div class="ftf-trust-items">
+              <div class="ftf-trust-item">
+                <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M7.7 14.3 3.8 10.4l1.4-1.4 2.5 2.5 7-7L16 6l-8.3 8.3z" /></svg>
+                <span>No experience needed</span>
+              </div>
+              <div class="ftf-trust-item">
+                <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M7.7 14.3 3.8 10.4l1.4-1.4 2.5 2.5 7-7L16 6l-8.3 8.3z" /></svg>
+                <span>Training included in every tour</span>
+              </div>
+              <div class="ftf-trust-item">
+                <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M7.7 14.3 3.8 10.4l1.4-1.4 2.5 2.5 7-7L16 6l-8.3 8.3z" /></svg>
+                <span>Guides stay close the whole ride</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="ftf-stats-grid">
+            <article class="ftf-stat-card animate-on-scroll">
+              <p class="ftf-stat-value">8+</p>
+              <p class="ftf-stat-label">Minimum age to ride</p>
+            </article>
+            <article class="ftf-stat-card animate-on-scroll" style="animation-delay:0.08s">
+              <p class="ftf-stat-value">35kg</p>
+              <p class="ftf-stat-label">Minimum weight required</p>
+            </article>
+            <article class="ftf-stat-card animate-on-scroll" style="animation-delay:0.16s">
+              <p class="ftf-stat-value ftf-stat-value-sm">15 min</p>
+              <p class="ftf-stat-label">Training before every tour</p>
+            </article>
+            <article class="ftf-stat-card animate-on-scroll" style="animation-delay:0.24s">
+              <p class="ftf-stat-value">7</p>
+              <p class="ftf-stat-label">Languages available</p>
+            </article>
+          </div>
         </div>
-        <div class="session-stat-item">
-          <p class="session-stat-value"><span data-count="8">0</span><em>+</em></p>
-          <p class="session-stat-label">years experience</p>
-        </div>
-        <div class="session-stat-item">
-          <p class="session-stat-value"><span data-count="98">0</span><em>%</em></p>
-          <p class="session-stat-label">satisfaction rate</p>
-        </div>
-        <div class="session-stat-item">
-          <p class="session-stat-value"><span data-count="40">0</span><em>+</em></p>
-          <p class="session-stat-label">languages supported</p>
+      </div>
+    </div>
+
+    <div class="ftf-faq-shell">
+      <div class="ftf-faq-inner">
+        <div class="ftf-faq-head animate-on-scroll">
+          <div class="ftf-faq-copy">
+            <p class="ftf-mini">FAQ</p>
+            <h2 class="ftf-faq-title">Everything you <span class="ftf-accent">need to know.</span></h2>
+            <p class="ftf-faq-note">Still have questions? Message us on WhatsApp.</p>
+            <a class="ftf-faq-chat" href="https://wa.me/36302584709" target="_blank" rel="noopener noreferrer">Chat with us →</a>
+          </div>
+
+          <div class="ftf-faq-list" id="ftfFaqList">
+            <div class="ftf-faq-item animate-on-scroll open" style="animation-delay:0s">
+              <button class="ftf-faq-question" type="button" aria-expanded="true">
+                <span>Do I need any experience to ride?</span>
+                <span class="ftf-faq-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none">
+                    <path class="ftf-icon-h" d="M7 12h10" />
+                    <path class="ftf-icon-v" d="M12 7v10" />
+                  </svg>
+                </span>
+              </button>
+              <div class="ftf-faq-answer">
+                <p>None at all. Every session starts with a 15 to 20 minute training right at our base on Haris koz 2. Our guides will walk you through everything step by step. Most riders are totally comfortable within 10 minutes. If you need more time, no rush - we don't leave until everyone feels confident.</p>
+              </div>
+            </div>
+
+            <div class="ftf-faq-item animate-on-scroll" style="animation-delay:0.05s">
+              <button class="ftf-faq-question" type="button" aria-expanded="false">
+                <span>What is the minimum age and weight?</span>
+                <span class="ftf-faq-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none">
+                    <path class="ftf-icon-h" d="M7 12h10" />
+                    <path class="ftf-icon-v" d="M12 7v10" />
+                  </svg>
+                </span>
+              </button>
+              <div class="ftf-faq-answer">
+                <p>Minimum age is 8 years old. Minimum weight is 35 kg. Riders under 18 must be accompanied by a parent or guardian. There is no upper age limit - we've had riders in their 70s having the time of their lives.</p>
+              </div>
+            </div>
+
+            <div class="ftf-faq-item animate-on-scroll" style="animation-delay:0.10s">
+              <button class="ftf-faq-question" type="button" aria-expanded="false">
+                <span>What's the difference between a group tour and a private tour?</span>
+                <span class="ftf-faq-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none">
+                    <path class="ftf-icon-h" d="M7 12h10" />
+                    <path class="ftf-icon-v" d="M12 7v10" />
+                  </svg>
+                </span>
+              </button>
+              <div class="ftf-faq-answer">
+                <p>Group tours run at fixed time slots - 08:30, 10:00, 11:30, 13:00, and 15:00 - in English only and are guided in groups of up to 8 riders per guide. Private tours can be booked at any time of your choosing and are available in English, German, Russian, Spanish, and French. Private tours are ideal for couples, families with children, or anyone who wants a more personal experience.</p>
+              </div>
+            </div>
+
+            <div class="ftf-faq-item animate-on-scroll" style="animation-delay:0.15s">
+              <button class="ftf-faq-question" type="button" aria-expanded="false">
+                <span>What happens if it rains?</span>
+                <span class="ftf-faq-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none">
+                    <path class="ftf-icon-h" d="M7 12h10" />
+                    <path class="ftf-icon-v" d="M12 7v10" />
+                  </svg>
+                </span>
+              </button>
+              <div class="ftf-faq-answer">
+                <p>The rollers are built to handle all weather conditions. We ride in light rain - we'll provide raincoats and gloves at no extra charge. In the case of heavy storms we will always try to reschedule at no cost to you. Budapest weather is mostly kind, so this rarely happens.</p>
+              </div>
+            </div>
+
+            <div class="ftf-faq-item animate-on-scroll" style="animation-delay:0.20s">
+              <button class="ftf-faq-question" type="button" aria-expanded="false">
+                <span>Can pregnant travelers join a tour?</span>
+                <span class="ftf-faq-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none">
+                    <path class="ftf-icon-h" d="M7 12h10" />
+                    <path class="ftf-icon-v" d="M12 7v10" />
+                  </svg>
+                </span>
+              </button>
+              <div class="ftf-faq-answer">
+                <p>Unfortunately no. For safety reasons, our tours are not suitable for pregnant travelers. The rollers require balance and body movement that could be unsafe during pregnancy.</p>
+              </div>
+            </div>
+
+            <div class="ftf-faq-item animate-on-scroll" style="animation-delay:0.25s">
+              <button class="ftf-faq-question" type="button" aria-expanded="false">
+                <span>Where exactly do we meet?</span>
+                <span class="ftf-faq-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none">
+                    <path class="ftf-icon-h" d="M7 12h10" />
+                    <path class="ftf-icon-v" d="M12 7v10" />
+                  </svg>
+                </span>
+              </button>
+              <div class="ftf-faq-answer">
+                <p>All tours start and finish at our base: Haris koz 2, 1052 Budapest. We are a 2 minute walk from the Danube riverbank and very easy to find. Just arrive 10 minutes before your tour time and look for the Monster Roller signs.</p>
+              </div>
+            </div>
+
+            <div class="ftf-faq-item animate-on-scroll" style="animation-delay:0.30s">
+              <button class="ftf-faq-question" type="button" aria-expanded="false">
+                <span>Is it safe? What safety equipment is provided?</span>
+                <span class="ftf-faq-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none">
+                    <path class="ftf-icon-h" d="M7 12h10" />
+                    <path class="ftf-icon-v" d="M12 7v10" />
+                  </svg>
+                </span>
+              </button>
+              <div class="ftf-faq-answer">
+                <p>Yes. Safety is our top priority. All riders receive a helmet at no extra charge - we have all sizes including kids. Your guide will be with you every step of the route. Our rollers are regularly maintained and technically checked. Groups are never larger than 8 riders per guide so everyone gets attention.</p>
+              </div>
+            </div>
+
+            <div class="ftf-faq-item animate-on-scroll" style="animation-delay:0.35s">
+              <button class="ftf-faq-question" type="button" aria-expanded="false">
+                <span>How do I pay?</span>
+                <span class="ftf-faq-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none">
+                    <path class="ftf-icon-h" d="M7 12h10" />
+                    <path class="ftf-icon-v" d="M12 7v10" />
+                  </svg>
+                </span>
+              </button>
+              <div class="ftf-faq-answer">
+                <p>You can reserve your spot now and pay on arrival in cash or card. No upfront payment is required when booking via WhatsApp. For group bookings of 8 or more we recommend booking in advance to guarantee your time slot.</p>
+              </div>
+            </div>
+
+            <div class="ftf-faq-item animate-on-scroll" style="animation-delay:0.40s">
+              <button class="ftf-faq-question" type="button" aria-expanded="false">
+                <span>Can I take photos during the tour?</span>
+                <span class="ftf-faq-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none">
+                    <path class="ftf-icon-h" d="M7 12h10" />
+                    <path class="ftf-icon-v" d="M12 7v10" />
+                  </svg>
+                </span>
+              </button>
+              <div class="ftf-faq-answer">
+                <p>Absolutely - and you should. Our guides know every perfect angle, every golden hour viewpoint, and every spot the other tours miss. Just let us know if you want extra time at a location for photos. We never rush.</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
+
+  <style>
+    .ftf-faq-wrap {
+      background: linear-gradient(to bottom, #000000 0%, #0c0c0c 38%, #141414 100%);
+    }
+
+    .ftf-trust-shell {
+      width: 100%;
+      background: linear-gradient(to bottom, #050505 0%, #111111 100%);
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .ftf-trust-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 60px;
+    }
+
+    .ftf-trust-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .ftf-mini {
+      margin: 0 0 12px;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: #f97316;
+      font-weight: 700;
+    }
+
+    .ftf-title {
+      margin: 0;
+      color: #ffffff;
+      font-size: 40px;
+      font-weight: 900;
+      line-height: 1.1;
+      max-width: 620px;
+    }
+
+    .ftf-accent {
+      color: #f97316;
+    }
+
+    .ftf-accent-soft {
+      color: #f97316;
+      font-weight: 700;
+    }
+
+    .ftf-lead {
+      margin: 20px 0 0;
+      font-size: 15px;
+      line-height: 1.7;
+      color: rgba(255, 255, 255, 0.6);
+      max-width: 620px;
+    }
+
+    .ftf-trust-items {
+      margin-top: 24px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .ftf-trust-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #ffffff;
+      font-size: 13px;
+      line-height: 1.3;
+    }
+
+    .ftf-trust-item svg {
+      width: 14px;
+      height: 14px;
+      fill: #f97316;
+      flex-shrink: 0;
+    }
+
+    .ftf-stats-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .ftf-stat-card {
+      background: #1a1a1a;
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      padding: 24px;
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+
+    .ftf-stat-card.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .ftf-stat-value {
+      margin: 0;
+      font-size: 40px;
+      line-height: 1;
+      font-weight: 900;
+      color: #f97316 !important;
+    }
+
+    .ftf-stat-value-sm {
+      font-size: 36px;
+    }
+
+    .ftf-stat-label {
+      margin: 10px 0 0;
+      font-size: 13px;
+      line-height: 1.5;
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    .ftf-faq-shell {
+      width: 100%;
+      background: linear-gradient(to bottom, #101010 0%, #080808 55%, #000000 100%);
+    }
+
+    .ftf-faq-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 80px 60px;
+    }
+
+    .ftf-faq-head {
+      display: grid;
+      grid-template-columns: 45% 55%;
+      gap: 40px;
+      align-items: start;
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+
+    .ftf-faq-head.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .ftf-faq-title {
+      margin: 0;
+      color: #ffffff;
+      font-size: 44px;
+      line-height: 1.08;
+      font-weight: 900;
+      max-width: 420px;
+    }
+
+    .ftf-faq-note {
+      margin: 16px 0 0;
+      color: rgba(255, 255, 255, 0.4);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .ftf-faq-chat {
+      display: inline-block;
+      margin-top: 10px;
+      color: #f97316;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .ftf-faq-chat:hover {
+      text-decoration: underline;
+    }
+
+    .ftf-faq-list {
+      width: 100%;
+    }
+
+    .ftf-faq-item {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 24px 0;
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+
+    .ftf-faq-item.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .ftf-faq-question {
+      width: 100%;
+      border: 0;
+      padding: 0;
+      margin: 0;
+      background: transparent;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+      color: #ffffff;
+      text-align: left;
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 1.5;
+      font-family: inherit;
+    }
+
+    .ftf-faq-icon {
+      width: 24px;
+      height: 24px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: border-color 0.3s ease;
+      flex-shrink: 0;
+    }
+
+    .ftf-faq-icon svg {
+      width: 12px;
+      height: 12px;
+      display: block;
+    }
+
+    .ftf-faq-icon path {
+      stroke: #ffffff;
+      stroke-width: 2;
+      stroke-linecap: round;
+      transition: transform 0.3s ease;
+      transform-origin: center;
+    }
+
+    .ftf-faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+    }
+
+    .ftf-faq-answer p {
+      margin: 12px 0 0;
+      padding: 0 0 20px;
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .ftf-faq-item.open .ftf-faq-answer {
+      max-height: 500px;
+    }
+
+    .ftf-faq-item.open .ftf-faq-icon {
+      border-color: #f97316;
+    }
+
+    .ftf-faq-item.open .ftf-icon-v {
+      transform: scaleY(0);
+    }
+
+    :global(html.light) .ftf-faq-wrap {
+      background: linear-gradient(to bottom, #fffaf0 0%, #fdf4e9 45%, #fffaf0 100%);
+    }
+
+    :global(html.light) .ftf-trust-shell {
+      background: linear-gradient(to bottom, #fffaf0 0%, #f7f0e4 100%);
+      border-top-color: rgba(15, 23, 42, 0.08);
+      border-bottom-color: rgba(15, 23, 42, 0.08);
+    }
+
+    :global(html.light) .ftf-faq-shell {
+      background: linear-gradient(to bottom, #fdf4e9 0%, #fffaf0 100%);
+    }
+
+    :global(html.light) .ftf-title,
+    :global(html.light) .ftf-faq-title,
+    :global(html.light) .ftf-trust-item,
+    :global(html.light) .ftf-faq-question {
+      color: #0f172a;
+    }
+
+    :global(html.light) .ftf-lead,
+    :global(html.light) .ftf-faq-answer p {
+      color: rgba(15, 23, 42, 0.68);
+    }
+
+    :global(html.light) .ftf-faq-note,
+    :global(html.light) .ftf-stat-label {
+      color: rgba(15, 23, 42, 0.5);
+    }
+
+    :global(html.light) .ftf-stat-card {
+      background: #ffffff;
+      border-color: rgba(15, 23, 42, 0.1);
+      box-shadow: 0 6px 26px rgba(15, 23, 42, 0.06);
+    }
+
+    :global(html.light) .ftf-faq-item {
+      border-bottom-color: rgba(15, 23, 42, 0.1);
+    }
+
+    :global(html.light) .ftf-faq-icon {
+      border-color: rgba(15, 23, 42, 0.24);
+    }
+
+    :global(html.light) .ftf-faq-icon path {
+      stroke: #0f172a;
+    }
+
+    @media (max-width: 1000px) {
+      .ftf-trust-grid {
+        grid-template-columns: 1fr;
+        gap: 34px;
+      }
+
+      .ftf-faq-head {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .ftf-trust-inner {
+        padding: 60px 24px;
+      }
+
+      .ftf-faq-inner {
+        padding: 60px 24px;
+      }
+
+      .ftf-title {
+        font-size: 32px;
+      }
+
+      .ftf-faq-title {
+        font-size: 36px;
+      }
+
+      .ftf-stat-card {
+        padding: 18px;
+      }
+
+      .ftf-stat-value {
+        font-size: 32px;
+      }
+
+      .ftf-stat-value-sm {
+        font-size: 29px;
+      }
+
+      .ftf-faq-question {
+        font-size: 15px;
+      }
+    }
+  </style>
+
+  <script is:inline>
+    (() => {
+      const root = document.getElementById('ftfFaqList');
+      if (!root) return;
+
+      const items = Array.from(root.querySelectorAll('.ftf-faq-item'));
+      const closeAll = () => {
+        items.forEach((item) => {
+          item.classList.remove('open');
+          const button = item.querySelector('.ftf-faq-question');
+          if (button) button.setAttribute('aria-expanded', 'false');
+        });
+      };
+
+      items.forEach((item) => {
+        const question = item.querySelector('.ftf-faq-question');
+        if (!question) return;
+
+        question.addEventListener('click', () => {
+          const isOpen = item.classList.contains('open');
+          closeAll();
+
+          if (!isOpen) {
+            item.classList.add('open');
+            question.setAttribute('aria-expanded', 'true');
+          }
+        });
+      });
+    })();
+  </script>
 
   <!-- JavaScript -->
   <script>
@@ -825,64 +1398,6 @@ import Layout from '../layouts/Layout.astro';
       });
     }
 
-    function animateStatValue(el, target, duration = 1500) {
-      const start = performance.now();
-      function frame(now) {
-        const progress = Math.min((now - start) / duration, 1);
-        const eased = 1 - Math.pow(1 - progress, 3);
-        el.textContent = String(Math.round(target * eased));
-        if (progress < 1) {
-          requestAnimationFrame(frame);
-        }
-      }
-      requestAnimationFrame(frame);
-    }
-
-    function initStatsAnimation() {
-      const statsRoot = document.getElementById('sessionStats');
-      if (!statsRoot) return;
-      const values = Array.from(statsRoot.querySelectorAll('[data-count]'));
-
-      let hasAnimated = false;
-      const runAnimation = () => {
-        if (hasAnimated) return;
-        hasAnimated = true;
-        values.forEach((value) => {
-          const target = Number(value.getAttribute('data-count'));
-          animateStatValue(value, target, 6000);
-        });
-      };
-
-      if ('IntersectionObserver' in window) {
-        const observer = new IntersectionObserver((entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              runAnimation();
-              observer.disconnect();
-            }
-          });
-        }, {
-          threshold: 0.35,
-          rootMargin: '0px 0px -8% 0px'
-        });
-
-        observer.observe(statsRoot);
-      } else {
-        // Fallback for old browsers without IntersectionObserver support.
-        const onScroll = () => {
-          const rect = statsRoot.getBoundingClientRect();
-          const triggerPoint = window.innerHeight * 0.82;
-          if (rect.top <= triggerPoint && rect.bottom >= 0) {
-            runAnimation();
-            window.removeEventListener('scroll', onScroll);
-          }
-        };
-
-        window.addEventListener('scroll', onScroll, { passive: true });
-        onScroll();
-      }
-    }
-
     function initHeroCarousel() {
       const layerA = document.getElementById('heroCarouselLayerA');
       const layerB = document.getElementById('heroCarouselLayerB');
@@ -911,7 +1426,6 @@ import Layout from '../layouts/Layout.astro';
 
     initHeroCarousel();
     bindSessionEvents();
-    initStatsAnimation();
 
     // Scroll-reveal for .animate-on-scroll elements (Rent Prices cards + heading)
     (function initScrollReveal() {
