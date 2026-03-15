@@ -5,8 +5,8 @@ import Layout from '../layouts/Layout.astro';
 <Layout title="Monster Roller Budapest – Ride the Beast!">
   <!-- Hero -->
   <section class="relative h-[85vh] sm:h-[70vh] md:h-screen w-full overflow-hidden dark:bg-zinc-900">
-    <img id="heroCarouselLayerA" src="/images/hero-night.jpg" alt="Monster Roller" class="absolute inset-0 w-full h-full object-cover brightness-75 dark:brightness-50 opacity-100 transition-opacity duration-700" />
-    <img id="heroCarouselLayerB" src="/images/Nightpulse.jpg" alt="Monster Roller" class="absolute inset-0 w-full h-full object-cover brightness-75 dark:brightness-50 opacity-0 transition-opacity duration-700" />
+    <img id="heroCarouselLayerA" src="/images/hero-night.jpg" alt="Monster Roller" fetchpriority="high" decoding="async" class="absolute inset-0 w-full h-full object-cover brightness-75 dark:brightness-50 opacity-100 transition-opacity duration-700" />
+    <img id="heroCarouselLayerB" src="/images/Nightpulse.jpg" alt="Monster Roller" loading="lazy" decoding="async" class="absolute inset-0 w-full h-full object-cover brightness-75 dark:brightness-50 opacity-0 transition-opacity duration-700" />
     <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/30 dark:from-black/20 dark:via-transparent dark:to-[#fdf4e9]/30 flex flex-col items-center justify-center px-4 sm:px-6 text-center">
       <h1 class="text-4xl sm:text-6xl md:text-7xl lg:text-9xl font-black text-black dark:text-orange-600 mb-4 md:mb-8 tracking-tight drop-shadow-2xl animate-fadeInUp">
         RIDE THE MONSTER
@@ -330,7 +330,7 @@ import Layout from '../layouts/Layout.astro';
             <!-- Rental Type + фото -->
             <div class="mb-8">
               <div class="flex justify-center mb-6">
-                <img id="rollerImage" src="/images/single-seat.jpg" alt="Selected Roller Model" class="w-48 h-48 sm:w-64 sm:h-64 md:w-72 md:h-72 object-cover rounded-2xl shadow-2xl border-4 border-orange-500/60 transition-all duration-500 animate-float" />
+                <img id="rollerImage" src="/images/single-seat.jpg" alt="Selected Roller Model" loading="lazy" decoding="async" class="w-48 h-48 sm:w-64 sm:h-64 md:w-72 md:h-72 object-cover rounded-2xl shadow-2xl border-4 border-orange-500/60 transition-all duration-500 animate-float" />
               </div>
               <div class="grid grid-cols-2 gap-4">
                 <button type="button" id="singleBtn" class="py-5 rounded-2xl border-2 border-orange-500 dark:border-orange-500 bg-orange-500/10 dark:bg-orange-600/20 text-black dark:text-white font-semibold active transition-colors transform hover:scale-105 duration-200 animate-scaleIn">Single seat</button>
@@ -340,18 +340,18 @@ import Layout from '../layouts/Layout.astro';
 
             <!-- Full Name -->
             <div class="mb-6 md:mb-8">
-              <label class="block text-base md:text-lg mb-2 md:mb-3 text-gray-700 dark:text-gray-300">Full Name</label>
+              <label for="fullName" class="block text-base md:text-lg mb-2 md:mb-3 text-gray-700 dark:text-gray-300">Full Name</label>
               <input type="text" id="fullName" name="fullName" required placeholder="John Doe" class="w-full p-3 md:p-4 bg-white dark:bg-zinc-700 border border-gray-300 dark:border-zinc-600 rounded-2xl text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:border-orange-500 dark:focus:border-orange-500 focus:ring-orange-500 transition-colors" />
             </div>
 
             <!-- Email + WhatsApp Number -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-6 mb-6 md:mb-8">
               <div>
-                <label class="block text-base md:text-lg mb-2 md:mb-3 text-gray-700 dark:text-gray-300">Email</label>
+                <label for="email" class="block text-base md:text-lg mb-2 md:mb-3 text-gray-700 dark:text-gray-300">Email</label>
                 <input type="email" id="email" name="email" required placeholder="example@email.com" class="w-full p-3 md:p-4 bg-white dark:bg-zinc-700 border border-gray-300 dark:border-zinc-600 rounded-2xl text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:border-orange-500 dark:focus:border-orange-500 focus:ring-orange-500 transition-colors" />
               </div>
               <div>
-                <label class="block text-base md:text-lg mb-2 md:mb-3 text-gray-700 dark:text-gray-300">WhatsApp Number</label>
+                <label for="phone" class="block text-base md:text-lg mb-2 md:mb-3 text-gray-700 dark:text-gray-300">WhatsApp Number</label>
                 <input type="tel" id="phone" name="phone" required placeholder="+36301234567" class="w-full p-3 md:p-4 bg-white dark:bg-zinc-700 border border-gray-300 dark:border-zinc-600 rounded-2xl text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:border-orange-500 dark:focus:border-orange-500 focus:ring-orange-500 transition-colors" />
               </div>
             </div>
@@ -359,11 +359,11 @@ import Layout from '../layouts/Layout.astro';
             <!-- Date & Time -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-6 mb-6 md:mb-8">
               <div>
-                <label class="block text-sm md:text-base lg:text-lg mb-2 md:mb-3 text-gray-700 dark:text-gray-300">Date</label>
+                <label for="date" class="block text-sm md:text-base lg:text-lg mb-2 md:mb-3 text-gray-700 dark:text-gray-300">Date</label>
                 <input type="date" id="date" name="date" required class="w-full p-1.5 md:p-3 bg-white dark:bg-zinc-700 border border-gray-300 dark:border-zinc-600 rounded-2xl text-xs md:text-sm text-gray-900 dark:text-white focus:border-orange-500 dark:focus:border-orange-500 focus:ring-orange-500 transition-colors">
               </div>
               <div>
-                <label class="block text-sm md:text-base lg:text-lg mb-2 md:mb-3 text-gray-700 dark:text-gray-300">Time</label>
+                <label for="time" class="block text-sm md:text-base lg:text-lg mb-2 md:mb-3 text-gray-700 dark:text-gray-300">Time</label>
                 <input type="time" id="time" name="time" required min="10:00" max="18:00" step="900" class="w-full p-1.5 md:p-3 bg-white dark:bg-zinc-700 border border-gray-300 dark:border-zinc-600 rounded-2xl text-xs md:text-sm text-gray-900 dark:text-white focus:border-orange-500 dark:focus:border-orange-500 focus:ring-orange-500 transition-colors">
                 <p class="text-xs text-gray-500 dark:text-gray-400 mt-1 text-center">
                   Booking available 10:00–18:00
@@ -374,7 +374,7 @@ import Layout from '../layouts/Layout.astro';
             <!-- Hours & Number of people -->
             <div class="grid grid-cols-2 gap-3 md:gap-6 mb-6 md:mb-8">
               <div>
-                <label class="block text-sm md:text-base lg:text-lg mb-2 md:mb-3 text-gray-700 dark:text-gray-300">How many hours?</label>
+                <label for="hours" class="block text-sm md:text-base lg:text-lg mb-2 md:mb-3 text-gray-700 dark:text-gray-300">How many hours?</label>
                 <select id="hours" name="hours" required class="w-full p-2 md:p-4 bg-white dark:bg-zinc-700 border border-gray-300 dark:border-zinc-600 rounded-2xl text-xs md:text-base text-gray-900 dark:text-white focus:border-orange-500 dark:focus:border-orange-500 focus:ring-orange-500 transition-colors">
                   <option value="1">1 hour</option>
                   <option value="2" selected>2 hours</option>
@@ -385,7 +385,7 @@ import Layout from '../layouts/Layout.astro';
                 </select>
               </div>
               <div>
-                <label class="block text-sm md:text-base lg:text-lg mb-2 md:mb-3 text-gray-700 dark:text-gray-300">People</label>
+                <label for="people" class="block text-sm md:text-base lg:text-lg mb-2 md:mb-3 text-gray-700 dark:text-gray-300">People</label>
                 <input type="number" id="people" name="people" min="1" max="15" value="1" required class="w-full p-2 md:p-4 bg-white dark:bg-zinc-700 border border-gray-300 dark:border-zinc-600 rounded-2xl text-gray-900 dark:text-white focus:border-orange-500 dark:focus:border-orange-500 focus:ring-orange-500 transition-colors text-center text-base md:text-lg">
                 <p id="peopleNote" class="text-xs text-orange-500 dark:text-orange-400 mt-1 text-center"></p>
               </div>
@@ -393,7 +393,7 @@ import Layout from '../layouts/Layout.astro';
 
             <!-- Notes -->
             <div class="mb-6 md:mb-8">
-              <label class="block text-base md:text-lg mb-2 md:mb-3 text-gray-700 dark:text-gray-300">Notes / Special Requests</label>
+              <label for="notes" class="block text-base md:text-lg mb-2 md:mb-3 text-gray-700 dark:text-gray-300">Notes / Special Requests</label>
               <textarea id="notes" name="notes" rows="3" placeholder="Any special requests? (e.g., music, group size, meeting point)" class="w-full p-3 md:p-4 bg-white dark:bg-zinc-700 border border-gray-300 dark:border-zinc-600 rounded-2xl text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:border-orange-500 dark:focus:border-orange-500 focus:ring-orange-500 transition-colors resize-none"></textarea>
               <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">Optional — tell us what you need!</p>
             </div>
@@ -1210,10 +1210,11 @@ import Layout from '../layouts/Layout.astro';
 
       priceDisplay.textContent = `${total} €`;
       
-      // Add pulse animation when price updates
+      // Re-trigger pulse without forcing synchronous layout.
       priceDisplay.classList.remove('animate-pulse-slow');
-      void priceDisplay.offsetWidth; // Trigger reflow
-      priceDisplay.classList.add('animate-pulse-slow');
+      requestAnimationFrame(() => {
+        priceDisplay.classList.add('animate-pulse-slow');
+      });
     }
 
     function setRollerType(isDoubleSeat) {
