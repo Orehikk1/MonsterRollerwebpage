@@ -360,7 +360,7 @@ import Layout from '../layouts/Layout.astro';
             <div class="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-6 mb-6 md:mb-8">
               <div>
                 <label class="block text-sm md:text-base lg:text-lg mb-2 md:mb-3 text-gray-700 dark:text-gray-300">Date</label>
-                <input type="date" id="date" name="date" required min="2026-02-21" class="w-full p-1.5 md:p-3 bg-white dark:bg-zinc-700 border border-gray-300 dark:border-zinc-600 rounded-2xl text-xs md:text-sm text-gray-900 dark:text-white focus:border-orange-500 dark:focus:border-orange-500 focus:ring-orange-500 transition-colors">
+                <input type="date" id="date" name="date" required class="w-full p-1.5 md:p-3 bg-white dark:bg-zinc-700 border border-gray-300 dark:border-zinc-600 rounded-2xl text-xs md:text-sm text-gray-900 dark:text-white focus:border-orange-500 dark:focus:border-orange-500 focus:ring-orange-500 transition-colors">
               </div>
               <div>
                 <label class="block text-sm md:text-base lg:text-lg mb-2 md:mb-3 text-gray-700 dark:text-gray-300">Time</label>
@@ -484,7 +484,7 @@ import Layout from '../layouts/Layout.astro';
               <span>Quick Ride</span>
               <span>10 Photospots</span>
             </div>
-            <button type="button" class="session-reserve-btn">Reserve</button>
+            <a href="https://wa.me/36302584709?text=I%20want%20to%20book%20the%20Citadella" target="_blank" rel="noopener noreferrer" class="session-reserve-btn">Reserve</a>
           </div>
         </article>
 
@@ -523,7 +523,7 @@ import Layout from '../layouts/Layout.astro';
               <span>Best Value</span>
               <span>25 Photospots</span>
             </div>
-            <button type="button" class="session-reserve-btn">Reserve</button>
+            <a href="https://wa.me/36302584709?text=I%20want%20to%20book%20the%20Buda%20%2B%20Pest" target="_blank" rel="noopener noreferrer" class="session-reserve-btn">Reserve</a>
           </div>
         </article>
 
@@ -542,7 +542,7 @@ import Layout from '../layouts/Layout.astro';
               <span>Group Pick</span>
               <span>30 Photospots</span>
             </div>
-            <button type="button" class="session-reserve-btn">Reserve</button>
+            <a href="https://wa.me/36302584709?text=I%20want%20to%20book%20the%20Grand" target="_blank" rel="noopener noreferrer" class="session-reserve-btn">Reserve</a>
           </div>
         </article>
 
@@ -561,7 +561,7 @@ import Layout from '../layouts/Layout.astro';
               <span>Scenic Route</span>
               <span>20 Photospots</span>
             </div>
-            <button type="button" class="session-reserve-btn">Reserve</button>
+            <a href="https://wa.me/36302584709?text=I%20want%20to%20book%20the%20Island" target="_blank" rel="noopener noreferrer" class="session-reserve-btn">Reserve</a>
           </div>
         </article>
       </div>
@@ -601,6 +601,7 @@ import Layout from '../layouts/Layout.astro';
     const doubleBtn = document.getElementById('doubleBtn');
     const peopleInput = document.getElementById('people');
     const priceDisplay = document.getElementById('totalPrice');
+    const dateInput = document.getElementById('date');
     const hoursSelect = document.getElementById('hours');
     const timeInput = document.getElementById('time');
     const rollerImage = document.getElementById('rollerImage');
@@ -609,6 +610,22 @@ import Layout from '../layouts/Layout.astro';
 
     const SINGLE_SEAT = { base: 25, extra: 10, image: "/images/single-seat.jpg" };
     const DOUBLE_SEAT = { base: 35, extra: 15, image: "/images/double-seat.jpg" };
+
+    function setTodayMinDate() {
+      if (!(dateInput instanceof HTMLInputElement)) return;
+
+      const now = new Date();
+      const year = now.getFullYear();
+      const month = String(now.getMonth() + 1).padStart(2, '0');
+      const day = String(now.getDate()).padStart(2, '0');
+      const today = `${year}-${month}-${day}`;
+
+      dateInput.min = today;
+
+      if (!dateInput.value || dateInput.value < today) {
+        dateInput.value = today;
+      }
+    }
 
     function updatePrice() {
       const hours = parseInt(hoursSelect.value) || 1;
@@ -658,6 +675,7 @@ import Layout from '../layouts/Layout.astro';
       }
     });
 
+    setTodayMinDate();
     updatePrice();
 
     const sessionSlider = document.getElementById('sessionSlider');

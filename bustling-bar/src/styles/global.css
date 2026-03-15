@@ -566,10 +566,6 @@ html.light header button {
   color: #000 !important;
 }
 
-html.dark header {
-  background-color: #000000;
-}
-
 /* Day/Night toggle */
 .day-night-toggle {
   position: relative;
