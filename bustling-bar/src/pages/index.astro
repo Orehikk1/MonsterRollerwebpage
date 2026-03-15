@@ -27,27 +27,293 @@ import Layout from '../layouts/Layout.astro';
   </div>
 
   <!-- Rent Prices -->
-  <section class="py-12 sm:py-16 md:py-20 lg:py-24 bg-gradient-to-b from-[#fffaf0] to-[#fdf4e9] dark:from-zinc-900 dark:to-black">
+  <section class="rp-section">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-center text-orange-600 mb-8 md:mb-12 lg:mb-16 animate-slideInLeft">
-        Rent Prices
-      </h2>
-      <div class="grid md:grid-cols-2 gap-6 md:gap-8 lg:gap-12 mb-10 md:mb-12 lg:mb-16">
-        <div class="bg-white/90 dark:bg-zinc-800/90 backdrop-blur-sm p-6 sm:p-8 rounded-3xl border border-orange-300/50 dark:border-orange-600/30 hover:border-orange-400 dark:hover:border-orange-500 transition shadow-xl dark:shadow-orange-950/20 text-center animate-fadeInUp delay-100 transform hover:scale-105 hover:shadow-2xl duration-300">
-          <h3 class="text-2xl sm:text-3xl md:text-4xl font-bold text-orange-600 dark:text-orange-400 mb-3 md:mb-4">Single seat</h3>
-          <p class="text-3xl sm:text-4xl font-semibold text-gray-900 dark:text-white">25 € <span class="text-base sm:text-lg text-gray-700 dark:text-gray-300">first hour</span></p>
-          <p class="text-base sm:text-lg text-gray-700 dark:text-gray-400 mt-1">+10 € each additional hour</p>
-          <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-500 mt-4 md:mt-6">Max 15 people per roller (rental only, guide not included)</p>
+      <h2 class="rp-heading animate-on-scroll">Rent Prices</h2>
+      <div class="rp-underline"></div>
+
+      <div class="rp-grid">
+        <!-- Single seat card -->
+        <div class="rp-card animate-on-scroll" style="animation-delay:0s">
+          <div class="rp-top-line rp-top-line--single"></div>
+          <div class="rp-deco-num" aria-hidden="true">01</div>
+          <div class="rp-card-inner">
+            <div class="rp-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="7" r="4"/>
+                <path d="M5.5 21a7 7 0 0 1 13 0"/>
+              </svg>
+            </div>
+            <h3 class="rp-card-title">Single seat</h3>
+            <div class="rp-price-row">
+              <span class="rp-price">25 €</span>
+              <span class="rp-badge">first hour</span>
+            </div>
+            <p class="rp-extra">+ 10 € each additional hour</p>
+            <hr class="rp-divider" />
+            <p class="rp-disclaimer">Max 15 people per roller (rental only, guide not included)</p>
+            <a href="#book-your-ride" class="rp-btn">Book Now →</a>
+          </div>
         </div>
-        <div class="bg-white/90 dark:bg-zinc-800/90 backdrop-blur-sm p-6 sm:p-8 rounded-3xl border border-orange-300/50 dark:border-orange-600/30 hover:border-orange-400 dark:hover:border-orange-500 transition shadow-xl dark:shadow-orange-950/20 text-center animate-fadeInUp delay-200 transform hover:scale-105 hover:shadow-2xl duration-300">
-          <h3 class="text-2xl sm:text-3xl md:text-4xl font-bold text-orange-600 dark:text-orange-400 mb-3 md:mb-4">Double seat</h3>
-          <p class="text-3xl sm:text-4xl font-semibold text-gray-900 dark:text-white">35 € <span class="text-base sm:text-lg text-gray-700 dark:text-gray-300">first hour</span></p>
-          <p class="text-base sm:text-lg text-gray-700 dark:text-gray-400 mt-1">+15 € each additional hour</p>
-          <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-500 mt-4 md:mt-6">Max 15 people per roller (rental only, guide not included)</p>
+
+        <!-- Double seat card -->
+        <div class="rp-card animate-on-scroll" style="animation-delay:0.15s">
+          <div class="rp-top-line rp-top-line--double"></div>
+          <div class="rp-deco-num" aria-hidden="true">02</div>
+          <div class="rp-card-inner">
+            <div class="rp-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="9" cy="7" r="3.5"/>
+                <circle cx="16" cy="8" r="3"/>
+                <path d="M2 21a7 7 0 0 1 14 0"/>
+                <path d="M16 14c2.5 0 5 1.5 5.5 5"/>
+              </svg>
+            </div>
+            <h3 class="rp-card-title">Double seat</h3>
+            <div class="rp-price-row">
+              <span class="rp-price">35 €</span>
+              <span class="rp-badge">first hour</span>
+            </div>
+            <p class="rp-extra">+ 15 € each additional hour</p>
+            <hr class="rp-divider" />
+            <p class="rp-disclaimer">Max 15 people per roller (rental only, guide not included)</p>
+            <a href="#book-your-ride" class="rp-btn">Book Now →</a>
+          </div>
         </div>
       </div>
     </div>
   </section>
+
+  <style>
+    /* ── Rent Prices Section ── */
+    .rp-section {
+      padding: 100px 0;
+      background:
+        radial-gradient(ellipse at 50% 50%, rgba(249,115,22,0.06) 0%, transparent 70%),
+        linear-gradient(to bottom, #1e1e1e 0%, #060606 50%, #141414 100%);
+    }
+
+    .rp-heading {
+      font-size: clamp(2rem, 5vw, 3.75rem);
+      font-weight: 900;
+      color: #f97316;
+      text-align: center;
+      margin-bottom: 16px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .rp-heading.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .rp-underline {
+      width: 60px;
+      height: 3px;
+      background: #f97316;
+      border-radius: 2px;
+      margin: 0 auto 60px auto;
+    }
+
+    .rp-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+    }
+
+    /* Card shell */
+    .rp-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 24px;
+      background: #1a1a1a;
+      border: 1px solid rgba(249,115,22,0.15);
+      transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    .rp-card.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .rp-card:hover {
+      border-color: rgba(249,115,22,0.5);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 60px rgba(249,115,22,0.1);
+    }
+
+    /* Decorative top gradient line */
+    .rp-top-line {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      z-index: 1;
+    }
+    .rp-top-line--single {
+      background: linear-gradient(to right, transparent, #f97316, transparent);
+    }
+    .rp-top-line--double {
+      background: linear-gradient(to right, transparent, #ff8c00, transparent);
+    }
+
+    /* Large decorative background number */
+    .rp-deco-num {
+      position: absolute;
+      bottom: -20px;
+      right: 20px;
+      font-size: 120px;
+      font-weight: 900;
+      color: rgba(249,115,22,0.04);
+      pointer-events: none;
+      z-index: 0;
+      user-select: none;
+      line-height: 1;
+    }
+
+    /* Card inner */
+    .rp-card-inner {
+      position: relative;
+      z-index: 1;
+      padding: 40px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* Icon */
+    .rp-icon {
+      margin-bottom: 16px;
+    }
+
+    /* Card title */
+    .rp-card-title {
+      font-size: 24px;
+      font-weight: 700;
+      color: #f97316;
+      margin-bottom: 20px;
+    }
+
+    /* Price row */
+    .rp-price-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+    .rp-price {
+      font-size: 64px;
+      font-weight: 900;
+      color: #ffffff;
+      line-height: 1;
+    }
+    .rp-badge {
+      background: rgba(249,115,22,0.12);
+      border: 1px solid rgba(249,115,22,0.25);
+      color: #f97316;
+      font-size: 12px;
+      border-radius: 20px;
+      padding: 4px 12px;
+      align-self: flex-start;
+      margin-top: 8px;
+    }
+
+    /* Additional hour line */
+    .rp-extra {
+      font-size: 15px;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 0;
+    }
+
+    /* Divider */
+    .rp-divider {
+      width: 100%;
+      border: none;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      margin: 16px 0;
+    }
+
+    /* Disclaimer */
+    .rp-disclaimer {
+      font-size: 12px;
+      color: rgba(255,255,255,0.35);
+      margin-bottom: 24px;
+    }
+
+    /* Book Now button */
+    .rp-btn {
+      display: block;
+      width: 100%;
+      background: #f97316;
+      color: #000000;
+      font-weight: 700;
+      font-size: 14px;
+      border-radius: 50px;
+      padding: 14px;
+      text-align: center;
+      text-decoration: none;
+      transition: background 0.25s ease;
+    }
+    .rp-btn:hover {
+      background: #e56e00;
+    }
+
+    /* animate-on-scroll base state handled by card/heading rules above */
+
+    /* Mobile: stack cards */
+    @media (max-width: 640px) {
+      .rp-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+      .rp-card-inner {
+        padding: 28px;
+      }
+      .rp-price {
+        font-size: 52px;
+      }
+    }
+
+    /* Light mode overrides */
+    :global(html.light) .rp-section {
+      background:
+        radial-gradient(ellipse at 50% 50%, rgba(249,115,22,0.07) 0%, transparent 70%),
+        linear-gradient(to bottom, #fffcf5 0%, #fdf4e9 55%, #fffaf0 100%);
+    }
+    :global(html.light) .rp-card {
+      background: #ffffff;
+      border-color: rgba(249,115,22,0.25);
+      box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+    }
+    :global(html.light) .rp-card:hover {
+      border-color: rgba(249,115,22,0.55);
+    }
+    :global(html.light) .rp-price {
+      color: #111111;
+    }
+    :global(html.light) .rp-extra {
+      color: rgba(15,23,42,0.65);
+    }
+    :global(html.light) .rp-disclaimer {
+      color: rgba(15,23,42,0.45);
+    }
+    :global(html.light) .rp-divider {
+      border-top-color: rgba(15,23,42,0.08);
+    }
+    :global(html.light) .rp-deco-num {
+      color: rgba(249,115,22,0.05);
+    }
+    :global(html.light) .rp-btn {
+      background: #f97316;
+      color: #000000;
+    }
+    :global(html.light) .rp-btn:hover {
+      background: #e56e00;
+    }
+  </style>
 
   <!-- Booking + Important Info -->
   <section id="book-your-ride" class="py-10 sm:py-14 md:py-18 lg:py-22 bg-gradient-to-b from-[#fdf4e9] to-white dark:from-black dark:to-zinc-900">
@@ -628,5 +894,31 @@ import Layout from '../layouts/Layout.astro';
     initHeroCarousel();
     bindSessionEvents();
     initStatsAnimation();
+
+    // Scroll-reveal for .animate-on-scroll elements (Rent Prices cards + heading)
+    (function initScrollReveal() {
+      const els = Array.from(document.querySelectorAll('.animate-on-scroll'));
+      if (!els.length) return;
+
+      const reveal = (el) => {
+        const delay = el.style.animationDelay || '0s';
+        const ms = parseFloat(delay) * 1000;
+        setTimeout(() => el.classList.add('is-visible'), ms);
+      };
+
+      if ('IntersectionObserver' in window) {
+        const obs = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              reveal(entry.target);
+              obs.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.15, rootMargin: '0px 0px -5% 0px' });
+        els.forEach((el) => obs.observe(el));
+      } else {
+        els.forEach((el) => el.classList.add('is-visible'));
+      }
+    })();
   </script>
 </Layout>

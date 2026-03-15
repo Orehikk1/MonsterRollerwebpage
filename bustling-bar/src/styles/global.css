@@ -801,6 +801,15 @@ html.light section[class*="from-[#"] {
   background: #fffaf0 !important;
 }
 
+/* Wave override for booking section — beats the py-* rule via ID specificity */
+html.light #book-your-ride {
+  background: linear-gradient(to bottom, #fffaf0 0%, #fdf4e9 50%, #fffaf0 100%) !important;
+}
+
+html.dark #book-your-ride {
+  background: linear-gradient(to bottom, #141414 0%, #000000 50%, #0f0f0f 100%) !important;
+}
+
 /* Cookie banner contrast */
 html.light #cookie-consent > div {
   background: rgba(255, 255, 255, 0.96) !important;
@@ -848,11 +857,11 @@ html.dark #cookie-consent p {
 }
 
 html.light .session-selector-section {
-  background: linear-gradient(to bottom, #fdf4e9, #fffaf0) !important;
+  background: linear-gradient(to bottom, #fffaf0 0%, #fdf4e9 50%, #fffaf0 100%) !important;
 }
 
 html.dark .session-selector-section {
-  background: linear-gradient(to bottom, #18181b, #000000);
+  background: linear-gradient(to bottom, #0f0f0f 0%, #1c1c1c 45%, #000000 100%);
 }
 
 .session-shell {
