@@ -11,10 +11,36 @@ const { title = "Monster Roller Budapest" } = Astro.props;
   <meta name="description" content="Monster Roller Budapest tours and rentals. Explore iconic city routes with guided electric roller rides for beginners, couples, and groups." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=Syne:wght@800&display=swap" rel="stylesheet">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=Syne:wght@800&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=Syne:wght@800&display=swap" media="print" onload="this.media='all'">
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=Syne:wght@800&display=swap">
+  </noscript>
   <title>{title} – Ride the Beast!</title>
-  <script defer src="/_vercel/insights/script.js"></script>
-  <script defer src="/_vercel/speed-insights/script.js"></script>
+
+  <script is:inline>
+    window.addEventListener('load', () => {
+      const loadScript = (src) => {
+        const script = document.createElement('script');
+        script.src = src;
+        script.defer = true;
+        document.body.appendChild(script);
+      };
+
+      const scheduleLoad = (cb) => {
+        if ('requestIdleCallback' in window) {
+          window.requestIdleCallback(cb, { timeout: 2500 });
+        } else {
+          setTimeout(cb, 1200);
+        }
+      };
+
+      scheduleLoad(() => {
+        loadScript('/_vercel/insights/script.js');
+        loadScript('/_vercel/speed-insights/script.js');
+      });
+    });
+  </script>
 
   <script>
     // Ensure light mode is the default before anything renders
@@ -1255,6 +1281,5 @@ const { title = "Monster Roller Budapest" } = Astro.props;
       }
     }
   </style>
-  <script defer src="/_vercel/insights/script.js"></script>
 </body>
 </html>

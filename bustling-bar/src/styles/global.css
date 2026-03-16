@@ -94,11 +94,6 @@ html.light span[class*="text-red-500"] {
   color: #dc2626 !important;
 }
 
-/* Ensure important paragraphs are visible */
-html.light p:not([class*="text-orange"]):not([class*="text-red"]) {
-  color: #1f2937 !important;
-}
-
 html.light .session-card .session-name,
 html.light .session-card .session-card-subtitle,
 html.light .session-card .session-duration,
