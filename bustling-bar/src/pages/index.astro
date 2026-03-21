@@ -2,11 +2,11 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="Monster Roller Budapest – Ride the Beast!">
+<Layout title="Monster Roller Budapest">
   <!-- Hero -->
   <section class="relative h-[85vh] sm:h-[70vh] md:h-screen w-full overflow-hidden dark:bg-zinc-900">
-    <img id="heroCarouselLayerA" src="/images/hero-night.jpg" alt="Monster Roller" fetchpriority="high" decoding="async" class="absolute inset-0 w-full h-full object-cover brightness-75 dark:brightness-50 opacity-100 transition-opacity duration-700" />
-    <img id="heroCarouselLayerB" src="/images/Nightpulse.jpg" alt="Monster Roller" loading="lazy" decoding="async" class="absolute inset-0 w-full h-full object-cover brightness-75 dark:brightness-50 opacity-0 transition-opacity duration-700" />
+    <img id="heroCarouselLayerA" src="/images/hero-night.jpg" alt="Guided electric scooter tour along the Budapest Danube riverbank at night" fetchpriority="high" decoding="async" class="absolute inset-0 w-full h-full object-cover brightness-75 dark:brightness-50 opacity-100 transition-opacity duration-700" />
+    <img id="heroCarouselLayerB" src="/images/Nightpulse.jpg" alt="Monster Roller group tour at night with Budapest Parliament in the background" loading="lazy" decoding="async" class="absolute inset-0 w-full h-full object-cover brightness-75 dark:brightness-50 opacity-0 transition-opacity duration-700" />
     <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/30 dark:from-black/20 dark:via-transparent dark:to-[#fdf4e9]/30 flex flex-col items-center justify-center px-4 sm:px-6 text-center">
       <h1 class="text-4xl sm:text-6xl md:text-7xl lg:text-9xl font-black text-black dark:text-orange-600 mb-4 md:mb-8 tracking-tight drop-shadow-2xl animate-fadeInUp">
         RIDE THE MONSTER
@@ -484,7 +484,7 @@ import Layout from '../layouts/Layout.astro';
               <span>Quick Ride</span>
               <span>10 Photospots</span>
             </div>
-            <a href="https://wa.me/36302584709?text=I%20want%20to%20book%20the%20Citadella" target="_blank" rel="noopener noreferrer" class="session-reserve-btn">Reserve</a>
+            <a href="/tours/citadella" class="session-reserve-btn">Reserve</a>
           </div>
         </article>
 
@@ -523,7 +523,7 @@ import Layout from '../layouts/Layout.astro';
               <span>Best Value</span>
               <span>25 Photospots</span>
             </div>
-            <a href="https://wa.me/36302584709?text=I%20want%20to%20book%20the%20Buda%20%2B%20Pest" target="_blank" rel="noopener noreferrer" class="session-reserve-btn">Reserve</a>
+            <a href="/tours/buda-pest" class="session-reserve-btn">Reserve</a>
           </div>
         </article>
 
@@ -542,7 +542,7 @@ import Layout from '../layouts/Layout.astro';
               <span>Group Pick</span>
               <span>30 Photospots</span>
             </div>
-            <a href="https://wa.me/36302584709?text=I%20want%20to%20book%20the%20Grand" target="_blank" rel="noopener noreferrer" class="session-reserve-btn">Reserve</a>
+            <a href="/tours/grand-tour" class="session-reserve-btn">Reserve</a>
           </div>
         </article>
 
@@ -561,7 +561,7 @@ import Layout from '../layouts/Layout.astro';
               <span>Scenic Route</span>
               <span>20 Photospots</span>
             </div>
-            <a href="https://wa.me/36302584709?text=I%20want%20to%20book%20the%20Island" target="_blank" rel="noopener noreferrer" class="session-reserve-btn">Reserve</a>
+            <a href="/tours/island-tour" class="session-reserve-btn">Reserve</a>
           </div>
         </article>
       </div>
@@ -647,7 +647,7 @@ import Layout from '../layouts/Layout.astro';
                 </span>
               </button>
               <div class="ftf-faq-answer">
-                <p>None at all. Every session starts with a 15 to 20 minute training right at our base on Haris koz 2. Our guides will walk you through everything step by step. Most riders are totally comfortable within 10 minutes. If you need more time, no rush - we don't leave until everyone feels confident.</p>
+                <p>None at all. Every session starts with a 15 to 20 minute training right at our base on Haris köz 2. Our guides will walk you through everything step by step. Most riders are totally comfortable within 10 minutes. If you need more time, no rush - we don't leave until everyone feels confident.</p>
               </div>
             </div>
 
@@ -722,7 +722,7 @@ import Layout from '../layouts/Layout.astro';
                 </span>
               </button>
               <div class="ftf-faq-answer">
-                <p>All tours start and finish at our base: Haris koz 2, 1052 Budapest. We are a 2 minute walk from the Danube riverbank and very easy to find. Just arrive 10 minutes before your tour time and look for the Monster Roller signs.</p>
+                <p>All tours start and finish at our base: Haris köz 2, 1052 Budapest. We are a 2 minute walk from the Danube riverbank and very easy to find. Just arrive 10 minutes before your tour time and look for the Monster Roller signs.</p>
               </div>
             </div>
 
@@ -1427,31 +1427,5 @@ import Layout from '../layouts/Layout.astro';
 
     initHeroCarousel();
     bindSessionEvents();
-
-    // Scroll-reveal for .animate-on-scroll elements (Rent Prices cards + heading)
-    (function initScrollReveal() {
-      const els = Array.from(document.querySelectorAll('.animate-on-scroll'));
-      if (!els.length) return;
-
-      const reveal = (el) => {
-        const delay = el.style.animationDelay || '0s';
-        const ms = parseFloat(delay) * 1000;
-        setTimeout(() => el.classList.add('is-visible'), ms);
-      };
-
-      if ('IntersectionObserver' in window) {
-        const obs = new IntersectionObserver((entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              reveal(entry.target);
-              obs.unobserve(entry.target);
-            }
-          });
-        }, { threshold: 0.15, rootMargin: '0px 0px -5% 0px' });
-        els.forEach((el) => obs.observe(el));
-      } else {
-        els.forEach((el) => el.classList.add('is-visible'));
-      }
-    })();
   </script>
 </Layout>

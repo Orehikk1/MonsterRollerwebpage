@@ -170,11 +170,11 @@ const { title = "Monster Roller Budapest" } = Astro.props;
           <div class="footer-col footer-col--tours animate-footer" style="transition-delay: 0.2s;">
             <p class="footer-col-label">Our Tours</p>
             <nav class="footer-links" aria-label="Footer tours links">
-              <a href="/tours"><span class="footer-link-arrow">→</span><span>Citadella Tour</span></a>
+              <a href="/tours/citadella"><span class="footer-link-arrow">→</span><span>Citadella Tour</span></a>
               <a href="/tours/fishermans-bastion"><span class="footer-link-arrow">→</span><span>Fisherman's Bastion</span></a>
-              <a href="/tours"><span class="footer-link-arrow">→</span><span>Buda + Pest Tour</span></a>
-              <a href="/tours"><span class="footer-link-arrow">→</span><span>Grand Tour</span></a>
-              <a href="/tours"><span class="footer-link-arrow">→</span><span>Island Tour</span></a>
+              <a href="/tours/buda-pest"><span class="footer-link-arrow">→</span><span>Buda + Pest Tour</span></a>
+              <a href="/tours/grand-tour"><span class="footer-link-arrow">→</span><span>Grand Tour</span></a>
+              <a href="/tours/island-tour"><span class="footer-link-arrow">→</span><span>Island Tour</span></a>
             </nav>
           </div>
 
@@ -448,6 +448,12 @@ const { title = "Monster Roller Budapest" } = Astro.props;
       }
     });
   </script>
+
+  <script>
+    import { initScrollReveal } from '../scripts/animations.js';
+    initScrollReveal();
+  </script>
+
   <style>
     .site-footer {
       background: #0a0a0a;

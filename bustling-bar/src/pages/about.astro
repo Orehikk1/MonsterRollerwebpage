@@ -1178,22 +1178,6 @@ import Layout from '../layouts/Layout.astro';
 
   <script is:inline>
     (() => {
-      const animatedElements = Array.from(document.querySelectorAll('.animate-on-scroll'));
-
-      if ('IntersectionObserver' in window) {
-        const fadeObserver = new IntersectionObserver((entries, observer) => {
-          entries.forEach((entry) => {
-            if (!entry.isIntersecting) return;
-            entry.target.classList.add('visible');
-            observer.unobserve(entry.target);
-          });
-        }, { threshold: 0.18, rootMargin: '0px 0px -8% 0px' });
-
-        animatedElements.forEach((el) => fadeObserver.observe(el));
-      } else {
-        animatedElements.forEach((el) => el.classList.add('visible'));
-      }
-
       const statsSection = document.getElementById('aboutStats');
       const countNodes = Array.from(document.querySelectorAll('#aboutStats [data-count]'));
 

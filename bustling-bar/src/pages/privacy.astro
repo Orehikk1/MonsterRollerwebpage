@@ -34,7 +34,7 @@ import Layout from '../layouts/Layout.astro';
 
       <section id="who-we-are" class="privacy-section">
         <h2 class="animate-on-scroll">Who We Are</h2>
-        <p class="animate-on-scroll">The data controller responsible for your personal data is Monster Roller Budapest, operating from Haris koz 2, 1052 Budapest, Hungary. You can reach us at bpsegway@gmail.com or by phone at +36 30 258 4709. We are a small team - your data is handled by us directly, not by a large corporation.</p>
+        <p class="animate-on-scroll">The data controller responsible for your personal data is Monster Roller Budapest, operating from Haris köz 2, 1052 Budapest, Hungary. You can reach us at bpsegway@gmail.com or by phone at +36 30 258 4709. We are a small team - your data is handled by us directly, not by a large corporation.</p>
       </section>
 
       <section id="data-we-collect" class="privacy-section">
@@ -84,7 +84,7 @@ import Layout from '../layouts/Layout.astro';
           </div>
           <div class="privacy-contact-row">
             <span>Address</span>
-            <p>Haris koz 2, 1052 Budapest</p>
+            <p>Haris köz 2, 1052 Budapest</p>
           </div>
         </div>
       </section>
@@ -100,7 +100,6 @@ import Layout from '../layouts/Layout.astro';
     document.addEventListener('DOMContentLoaded', () => {
       const sections = Array.from(document.querySelectorAll('.privacy-section'));
       const tocLinks = Array.from(document.querySelectorAll('[data-section-link]'));
-      const animateEls = Array.from(document.querySelectorAll('.privacy-section .animate-on-scroll'));
 
       const setActiveTocLink = (id) => {
         tocLinks.forEach((link) => {
@@ -131,24 +130,10 @@ import Layout from '../layouts/Layout.astro';
         });
 
         sections.forEach((section) => sectionObserver.observe(section));
-
-        const revealObserver = new IntersectionObserver((entries, observer) => {
-          entries.forEach((entry) => {
-            if (!entry.isIntersecting) return;
-            entry.target.classList.add('is-visible');
-            observer.unobserve(entry.target);
-          });
-        }, {
-          rootMargin: '0px 0px -10% 0px',
-          threshold: 0.1,
-        });
-
-        animateEls.forEach((el) => revealObserver.observe(el));
       } else {
         if (sections[0]) {
           setActiveTocLink(sections[0].id);
         }
-        animateEls.forEach((el) => el.classList.add('is-visible'));
       }
     });
   </script>
