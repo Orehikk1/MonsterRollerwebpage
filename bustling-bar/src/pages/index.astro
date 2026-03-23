@@ -6,19 +6,26 @@ import Layout from '../layouts/Layout.astro';
   <!-- Hero -->
   <section class="relative h-[85vh] md:h-screen w-full overflow-hidden dark:bg-zinc-900">
 
-    <img id="heroImage" src="/images/hero-night.webp" alt="Guided electric scooter tour along the Budapest Danube riverbank at night" loading="eager" fetchpriority="high" decoding="async" class="absolute inset-0 w-full h-full object-cover brightness-75 dark:brightness-50 opacity-100 transition-opacity duration-700" />
+    <img id="heroImageLight" src="/images/hero-night.webp" alt="Guided electric scooter tour along the Budapest Danube riverbank at night" loading="eager" fetchpriority="high" decoding="async" class="absolute inset-0 w-full h-full object-cover brightness-75 dark:brightness-50 opacity-100 transition-opacity duration-700" />
+    <img id="heroImageDark" src="/images/hero-night-dark.webp" alt="Guided electric scooter tour along the Budapest Danube riverbank at night" loading="lazy" fetchpriority="high" decoding="async" style="display:none" class="absolute inset-0 w-full h-full object-cover brightness-75 dark:brightness-50 opacity-100 transition-opacity duration-700" />
     <script is:inline>
       // Update hero image based on theme (on load and when theme changes)
       function updateHeroImage() {
-        const heroImg = document.getElementById('heroImage');
+        const heroImgLight = document.getElementById('heroImageLight');
+        const heroImgDark = document.getElementById('heroImageDark');
         const isDark = document.documentElement.classList.contains('dark');
-        if (heroImg) {
-          const isMobile = window.matchMedia('(max-width: 767px)').matches;
-          const targetSrc = isDark ? '/images/hero-night-dark.webp' : '/images/hero-night.webp';
-          const currentPath = new URL(heroImg.currentSrc || heroImg.src, window.location.href).pathname;
-          if (currentPath !== targetSrc) {
-            heroImg.src = targetSrc;
-          }
+        if (!(heroImgLight && heroImgDark)) return;
+
+        const isMobile = window.matchMedia('(max-width: 767px)').matches;
+        const activeImg = isDark ? heroImgDark : heroImgLight;
+        const inactiveImg = isDark ? heroImgLight : heroImgDark;
+
+        activeImg.style.display = '';
+        activeImg.loading = 'eager';
+        inactiveImg.style.display = 'none';
+        inactiveImg.loading = 'lazy';
+
+        [heroImgLight, heroImgDark].forEach((heroImg) => {
           heroImg.style.objectFit = 'cover';
           heroImg.style.width = '100%';
           heroImg.style.height = '100%';
@@ -27,7 +34,7 @@ import Layout from '../layouts/Layout.astro';
           heroImg.style.objectPosition = isDark
             ? (isMobile ? 'center 62%' : 'center 60%')
             : (isMobile ? 'center 58%' : 'center 55%');
-        }
+        });
       }
       
       // Update on page load
@@ -361,7 +368,7 @@ import Layout from '../layouts/Layout.astro';
             <!-- Rental Type + фото -->
             <div class="mb-8">
               <div class="flex justify-center mb-6">
-                <img id="rollerImage" src="/images/single-seat.jpg" alt="Selected Roller Model" loading="lazy" decoding="async" class="w-48 h-48 sm:w-64 sm:h-64 md:w-72 md:h-72 object-cover rounded-2xl shadow-2xl border-4 border-orange-500/60 transition-all duration-500 animate-float" />
+                <img id="rollerImage" src="/images/single-seat.webp" alt="Selected Roller Model" loading="lazy" decoding="async" class="w-48 h-48 sm:w-64 sm:h-64 md:w-72 md:h-72 object-cover rounded-2xl shadow-2xl border-4 border-orange-500/60 transition-all duration-500 animate-float" />
               </div>
               <div class="grid grid-cols-2 gap-4">
                 <button type="button" id="singleBtn" class="py-5 rounded-2xl border-2 border-orange-500 dark:border-orange-500 bg-orange-500/10 dark:bg-orange-600/20 text-black dark:text-white font-semibold active transition-colors transform hover:scale-105 duration-200 animate-scaleIn">Single seat</button>
@@ -1212,7 +1219,7 @@ import Layout from '../layouts/Layout.astro';
     
     let isDouble = false;
 
-    const SINGLE_SEAT = { base: 25, extra: 10, image: "/images/single-seat.jpg" };
+    const SINGLE_SEAT = { base: 25, extra: 10, image: "/images/single-seat.webp" };
     const DOUBLE_SEAT = { base: 35, extra: 15, image: "/images/double-seat.jpg" };
 
     function setTodayMinDate() {
