@@ -17,7 +17,11 @@ import Layout from '../layouts/Layout.astro';
         const isDark = document.documentElement.classList.contains('dark');
         if (heroImg) {
           const isMobile = window.matchMedia('(max-width: 767px)').matches;
-          heroImg.src = isDark ? '/images/hero-night-dark.jpg' : '/images/hero-night.jpg';
+          const targetSrc = isDark ? '/images/hero-night-dark.jpg' : '/images/hero-night.jpg';
+          const currentPath = new URL(heroImg.currentSrc || heroImg.src, window.location.href).pathname;
+          if (currentPath !== targetSrc) {
+            heroImg.src = targetSrc;
+          }
           heroImg.style.objectFit = 'cover';
           heroImg.style.width = '100%';
           heroImg.style.height = '100%';
