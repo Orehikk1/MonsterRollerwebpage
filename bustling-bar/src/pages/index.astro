@@ -7,6 +7,12 @@ import Layout from '../layouts/Layout.astro';
   <section class="relative h-[85vh] sm:h-[70vh] md:h-screen w-full overflow-hidden dark:bg-zinc-900">
     <img id="heroCarouselLayerA" src="/images/hero-night.jpg" alt="Guided electric scooter tour along the Budapest Danube riverbank at night" fetchpriority="high" decoding="async" class="absolute inset-0 w-full h-full object-cover brightness-75 dark:brightness-50 opacity-100 transition-opacity duration-700" />
     <img id="heroCarouselLayerB" src="/images/Nightpulse.jpg" alt="Monster Roller group tour at night with Budapest Parliament in the background" loading="lazy" decoding="async" class="absolute inset-0 w-full h-full object-cover brightness-75 dark:brightness-50 opacity-0 transition-opacity duration-700" />
+    <script>
+      // Swap hero image based on dark mode
+      if (document.documentElement.classList.contains('dark')) {
+        document.getElementById('heroCarouselLayerA').src = '/images/hero-night-dark.png';
+      }
+    </script>
     <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/30 dark:from-black/20 dark:via-transparent dark:to-[#fdf4e9]/30 flex flex-col items-center justify-center px-4 sm:px-6 text-center">
       <h1 class="text-4xl sm:text-6xl md:text-7xl lg:text-9xl font-black text-black dark:text-orange-600 mb-4 md:mb-8 tracking-tight drop-shadow-2xl animate-fadeInUp">
         RIDE THE MONSTER
@@ -1404,7 +1410,9 @@ import Layout from '../layouts/Layout.astro';
       const layerB = document.getElementById('heroCarouselLayerB');
       if (!(layerA instanceof HTMLImageElement) || !(layerB instanceof HTMLImageElement)) return;
 
-      const slides = ['/images/hero-night.jpg', '/images/Nightpulse.jpg'];
+      const isDark = document.documentElement.classList.contains('dark');
+      const firstSlide = isDark ? '/images/hero-night-dark.png' : '/images/hero-night.jpg';
+      const slides = [firstSlide, '/images/Nightpulse.jpg'];
       let activeLayer = 0;
       let slideIndex = 0;
 
