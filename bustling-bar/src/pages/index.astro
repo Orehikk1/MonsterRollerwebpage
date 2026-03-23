@@ -5,11 +5,8 @@ import Layout from '../layouts/Layout.astro';
 <Layout title="Monster Roller Budapest">
   <!-- Hero -->
   <section class="relative h-[85vh] md:h-screen w-full overflow-hidden dark:bg-zinc-900">
-    <!-- Preload both hero images -->
-    <link rel="preload" as="image" href="/images/hero-night.jpg" />
-    <link rel="preload" as="image" href="/images/hero-night-dark.jpg" />
-    
-    <img id="heroImage" src="/images/hero-night.jpg" alt="Guided electric scooter tour along the Budapest Danube riverbank at night" fetchpriority="high" decoding="async" class="absolute inset-0 w-full h-full object-cover brightness-75 dark:brightness-50 opacity-100 transition-opacity duration-700" />
+
+    <img id="heroImage" src="/images/hero-night.webp" alt="Guided electric scooter tour along the Budapest Danube riverbank at night" loading="eager" fetchpriority="high" decoding="async" class="absolute inset-0 w-full h-full object-cover brightness-75 dark:brightness-50 opacity-100 transition-opacity duration-700" />
     <script is:inline>
       // Update hero image based on theme (on load and when theme changes)
       function updateHeroImage() {
@@ -17,7 +14,7 @@ import Layout from '../layouts/Layout.astro';
         const isDark = document.documentElement.classList.contains('dark');
         if (heroImg) {
           const isMobile = window.matchMedia('(max-width: 767px)').matches;
-          const targetSrc = isDark ? '/images/hero-night-dark.jpg' : '/images/hero-night.jpg';
+          const targetSrc = isDark ? '/images/hero-night-dark.webp' : '/images/hero-night.webp';
           const currentPath = new URL(heroImg.currentSrc || heroImg.src, window.location.href).pathname;
           if (currentPath !== targetSrc) {
             heroImg.src = targetSrc;

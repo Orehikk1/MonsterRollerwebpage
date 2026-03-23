@@ -1,5 +1,16 @@
 {
   "buildCommand": "cd bustling-bar && npm run build",
   "installCommand": "cd bustling-bar && npm install",
-  "outputDirectory": "bustling-bar/dist"
+  "outputDirectory": "bustling-bar/dist",
+  "headers": [
+    {
+      "source": "/images/(.*)\\.(jpg|png|webp)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    }
+  ]
 }
