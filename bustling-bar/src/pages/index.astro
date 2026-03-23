@@ -9,17 +9,23 @@ import Layout from '../layouts/Layout.astro';
     <link rel="preload" as="image" href="/images/hero-night.jpg" />
     <link rel="preload" as="image" href="/images/hero-night-dark.png" />
     
-    <img id="heroCarouselLayerA" src="/images/hero-night.jpg" alt="Guided electric scooter tour along the Budapest Danube riverbank at night" fetchpriority="high" decoding="async" class="absolute inset-0 w-full h-full object-cover brightness-75 dark:brightness-50 opacity-100 transition-opacity duration-700" />
-    <img id="heroCarouselLayerB" src="/images/Nightpulse.jpg" alt="Monster Roller group tour at night with Budapest Parliament in the background" loading="lazy" decoding="async" class="absolute inset-0 w-full h-full object-cover brightness-75 dark:brightness-50 opacity-0 transition-opacity duration-700" />
+    <img id="heroImage" src="/images/hero-night.jpg" alt="Guided electric scooter tour along the Budapest Danube riverbank at night" fetchpriority="high" decoding="async" class="absolute inset-0 w-full h-full object-cover brightness-75 dark:brightness-50 opacity-100 transition-opacity duration-700" />
     <script is:inline>
-      // Immediately set dark mode hero image
-      document.addEventListener('DOMContentLoaded', () => {
-        const heroImg = document.getElementById('heroCarouselLayerA');
+      // Update hero image based on theme (on load and when theme changes)
+      function updateHeroImage() {
+        const heroImg = document.getElementById('heroImage');
         const isDark = document.documentElement.classList.contains('dark');
-        if (heroImg && isDark) {
-          heroImg.src = '/images/hero-night-dark.png';
+        if (heroImg) {
+          heroImg.src = isDark ? '/images/hero-night-dark.png' : '/images/hero-night.jpg';
         }
-      });
+      }
+      
+      // Update on page load
+      document.addEventListener('DOMContentLoaded', updateHeroImage);
+      
+      // Watch for theme changes
+      const observer = new MutationObserver(() => updateHeroImage());
+      observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
     </script>
     <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/30 dark:from-black/20 dark:via-transparent dark:to-[#fdf4e9]/30 flex flex-col items-center justify-center px-4 sm:px-6 text-center">
       <h1 class="text-4xl sm:text-6xl md:text-7xl lg:text-9xl font-black text-black dark:text-orange-600 mb-4 md:mb-8 tracking-tight drop-shadow-2xl animate-fadeInUp">
@@ -1413,35 +1419,6 @@ import Layout from '../layouts/Layout.astro';
       });
     }
 
-    function initHeroCarousel() {
-      const layerA = document.getElementById('heroCarouselLayerA');
-      const layerB = document.getElementById('heroCarouselLayerB');
-      if (!(layerA instanceof HTMLImageElement) || !(layerB instanceof HTMLImageElement)) return;
-
-      const isDark = document.documentElement.classList.contains('dark');
-      const firstSlide = isDark ? '/images/hero-night-dark.png' : '/images/hero-night.jpg';
-      const slides = [firstSlide, '/images/Nightpulse.jpg'];
-      let activeLayer = 0;
-      let slideIndex = 0;
-
-      const advance = () => {
-        slideIndex = (slideIndex + 1) % slides.length;
-        const incoming = activeLayer === 0 ? layerB : layerA;
-        const outgoing = activeLayer === 0 ? layerA : layerB;
-
-        incoming.src = slides[slideIndex];
-        incoming.classList.remove('opacity-0');
-        incoming.classList.add('opacity-100');
-        outgoing.classList.remove('opacity-100');
-        outgoing.classList.add('opacity-0');
-
-        activeLayer = activeLayer === 0 ? 1 : 0;
-      };
-
-      window.setInterval(advance, 5000);
-    }
-
-    initHeroCarousel();
     bindSessionEvents();
   </script>
 </Layout>
