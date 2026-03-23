@@ -21,9 +21,11 @@ import Layout from '../layouts/Layout.astro';
           heroImg.style.objectFit = 'cover';
           heroImg.style.width = '100%';
           heroImg.style.height = '100%';
+          heroImg.style.transformOrigin = 'center center';
+          heroImg.style.transform = isDark ? 'scale(1.15)' : 'none';
           heroImg.style.objectPosition = isDark
-            ? (isMobile ? 'center 58%' : 'center 60%')
-            : (isMobile ? 'center 52%' : 'center 55%');
+            ? (isMobile ? 'center 62%' : 'center 60%')
+            : (isMobile ? 'center 58%' : 'center 55%');
         }
       }
       
