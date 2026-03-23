@@ -9,7 +9,7 @@ import Layout from '../layouts/Layout.astro';
     <link rel="preload" as="image" href="/images/hero-night.jpg" />
     <link rel="preload" as="image" href="/images/hero-night-dark.png" />
     
-    <img id="heroImage" src="/images/hero-night.jpg" alt="Guided electric scooter tour along the Budapest Danube riverbank at night" fetchpriority="high" decoding="async" class="absolute inset-0 w-full h-full object-cover object-center brightness-75 dark:brightness-50 opacity-100 transition-opacity duration-700" />
+    <img id="heroImage" src="/images/hero-night.jpg" alt="Guided electric scooter tour along the Budapest Danube riverbank at night" fetchpriority="high" decoding="async" class="absolute inset-0 w-full h-full object-cover brightness-75 dark:brightness-50 opacity-100 transition-opacity duration-700" />
     <script is:inline>
       // Update hero image based on theme (on load and when theme changes)
       function updateHeroImage() {
@@ -17,6 +17,7 @@ import Layout from '../layouts/Layout.astro';
         const isDark = document.documentElement.classList.contains('dark');
         if (heroImg) {
           heroImg.src = isDark ? '/images/hero-night-dark.png' : '/images/hero-night.jpg';
+          heroImg.style.objectPosition = isDark ? 'center 35%' : 'center 25%';
         }
       }
       
