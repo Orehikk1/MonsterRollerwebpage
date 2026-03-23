@@ -4,7 +4,7 @@ import Layout from '../layouts/Layout.astro';
 
 <Layout title="Monster Roller Budapest">
   <!-- Hero -->
-  <section class="relative h-[85vh] sm:h-[70vh] md:h-screen w-full overflow-hidden dark:bg-zinc-900">
+  <section class="relative h-[85vh] md:h-screen w-full overflow-hidden dark:bg-zinc-900">
     <!-- Preload both hero images -->
     <link rel="preload" as="image" href="/images/hero-night.jpg" />
     <link rel="preload" as="image" href="/images/hero-night-dark.png" />
@@ -16,13 +16,20 @@ import Layout from '../layouts/Layout.astro';
         const heroImg = document.getElementById('heroImage');
         const isDark = document.documentElement.classList.contains('dark');
         if (heroImg) {
+          const isMobile = window.matchMedia('(max-width: 767px)').matches;
           heroImg.src = isDark ? '/images/hero-night-dark.png' : '/images/hero-night.jpg';
-          heroImg.style.objectPosition = isDark ? 'center 35%' : 'center 25%';
+          heroImg.style.objectFit = 'cover';
+          heroImg.style.width = '100%';
+          heroImg.style.height = '100%';
+          heroImg.style.objectPosition = isDark
+            ? (isMobile ? 'center 58%' : 'center 60%')
+            : (isMobile ? 'center 52%' : 'center 55%');
         }
       }
       
       // Update on page load
       document.addEventListener('DOMContentLoaded', updateHeroImage);
+      window.addEventListener('resize', updateHeroImage, { passive: true });
       
       // Watch for theme changes
       const observer = new MutationObserver(() => updateHeroImage());
