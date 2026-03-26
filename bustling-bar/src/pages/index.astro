@@ -7,7 +7,7 @@ import Layout from '../layouts/Layout.astro';
   <section class="relative h-[85vh] md:h-screen w-full overflow-hidden dark:bg-zinc-900">
 
     <img id="heroImageLight" src="/images/hero-night.webp" alt="Guided electric scooter tour along the Budapest Danube riverbank at night" loading="eager" fetchpriority="high" decoding="async" class="absolute inset-0 w-full h-full object-cover brightness-75 dark:brightness-50 opacity-100 transition-opacity duration-700" />
-    <img id="heroImageDark" src="/images/hero-night-dark.webp" alt="Guided electric scooter tour along the Budapest Danube riverbank at night" loading="lazy" fetchpriority="high" decoding="async" style="display:none" class="absolute inset-0 w-full h-full object-cover brightness-75 dark:brightness-50 opacity-100 transition-opacity duration-700" />
+    <img id="heroImageDark" src="/images/hero-night-dark.webp" alt="Guided electric scooter tour along the Budapest Danube riverbank at night" loading="lazy" decoding="async" style="display:none" class="absolute inset-0 w-full h-full object-cover brightness-75 dark:brightness-50 opacity-100 transition-opacity duration-700" />
     <script is:inline>
       // Update hero image based on theme (on load and when theme changes)
       function updateHeroImage() {

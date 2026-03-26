@@ -16,11 +16,14 @@ import Layout from '../layouts/Layout.astro';
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
         <div class="rounded-2xl border border-black/10 dark:border-white/10 bg-[#ffffff] dark:bg-[#141414] p-6 md:p-8 shadow-xl">
           <form
-            action="mailto:bpsegway@gmail.com?subject=Monster%20Roller%20Contact%20Form"
+            action="https://formsubmit.co/bpsegway@gmail.com"
             method="POST"
-            enctype="text/plain"
             class="space-y-5"
           >
+            <input type="hidden" name="_subject" value="Monster Roller Contact Form" />
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="hidden" name="_template" value="table" />
+            <input type="hidden" name="_next" value="https://monster-roller-site.vercel.app/contact" />
             <div>
               <label for="fullName" class="block text-sm font-medium !text-zinc-800 dark:!text-zinc-300 mb-2">Full Name</label>
               <input id="fullName" name="fullName" type="text" required class="w-full rounded-[10px] border border-black/12 dark:border-white/15 bg-[#f7f7f7] dark:bg-[#1a1a1a] text-zinc-900 dark:text-white px-4 py-3 outline-none focus:border-[#F97316]" />

@@ -12,6 +12,10 @@ const { title = "Monster Roller Budapest" } = Astro.props;
   <title>{title} – Ride the Beast!</title>
   <script is:inline>
     (() => {
+      const path = window.location.pathname.replace(/\/+$/, '') || '/';
+      if (path !== '/') return;
+      if (document.head.querySelector('link[data-preload="hero-image"]')) return;
+
       const storedTheme = localStorage.getItem('theme');
       const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
       const isDark = storedTheme === 'dark' || (!storedTheme && prefersDark);
@@ -20,6 +24,7 @@ const { title = "Monster Roller Budapest" } = Astro.props;
       preload.rel = 'preload';
       preload.as = 'image';
       preload.href = heroHref;
+      preload.dataset.preload = 'hero-image';
       document.head.appendChild(preload);
     })();
   </script>
